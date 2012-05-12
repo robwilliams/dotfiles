@@ -33,6 +33,12 @@ alias gst="git status"
 alias gc="git commit -v"
 alias gap="git add -p"
 
+# Directory listing aliases
+alias sl="ls"
+alias ks="ls"
+alias l="ls"
+alias ll="ls -al"
+
 # This loads RVM into a shell session but only if it is installed.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
