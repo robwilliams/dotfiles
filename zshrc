@@ -11,7 +11,6 @@ zstyle ':completion:*:functions' ignored-patterns '_*' # Ignores commands that a
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
 
-
 setopt completealiases
 
 # This will set the default prompt to the walters theme
@@ -38,6 +37,7 @@ alias sl="ls"
 alias ks="ls"
 alias l="ls"
 alias ll="ls -al"
+alias la="ls -al"
 
 # This loads RVM into a shell session but only if it is installed.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
