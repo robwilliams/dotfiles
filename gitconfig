@@ -1,0 +1,23 @@
+[user]
+  name  = Robert Williams
+  email = rob@r-williams.com
+[color]
+  diff   = auto
+  status = auto
+  branch = auto
+[core]
+  excludesfile = ~/.gitignore_global
+  autocrlf     = input
+[apply]
+  whitespace = nowarn
+[format]
+  pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cd)%Creset
+[github]
+  user = robwilliams
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
