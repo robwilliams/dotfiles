@@ -29,9 +29,6 @@ alias gap="git add -p"
 # This loads RVM into a shell session but only if it is installed.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
-# This adds rbenv to the path. 
-export PATH="$HOME/.rbenv/bin:$PATH"
-
 # Speed ruby up at the expense of memory 
 export RUBY_HEAP_MIN_SLOTS=1000000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
