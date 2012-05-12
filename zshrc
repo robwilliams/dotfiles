@@ -3,6 +3,9 @@ autoload -U compinit promptinit
 compinit
 promptinit
 
+# Ignore duplicates and share history between sessions.
+setopt histignorealldups sharehistory
+
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/tmp/zsh/cache
