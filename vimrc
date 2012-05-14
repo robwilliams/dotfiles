@@ -73,8 +73,6 @@ nmap <leader>n :NERDTreeToggle<cr>
 
 " NERDTree config
 let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\env','\.vim$', '\~$', '\.swp$']
-let NERDTreeSortOrder=['\/$', '*', '\.swp$', '\~$']
 let NERDTreeShowBookmarks=1
 let NERDTreeHightlightCursorline=1
 
