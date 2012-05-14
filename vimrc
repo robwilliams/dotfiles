@@ -7,6 +7,9 @@ filetype plugin indent on         " Turn on file type detection.
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
+set autoindent                    " Indentation and
+set smartindent                   " Smart indentation
+
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 
@@ -22,6 +25,7 @@ set smartcase                     " But case-sensitive if expression contains a 
 
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
+set ls=2
 
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
@@ -49,6 +53,8 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 set background=dark
 colorscheme solarized
 
+" Easier to type than \
+let mapleader=","
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -61,7 +67,20 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
+" NERDTree Mappings
+nmap <leader>n :NERDTreeToggle<cr>
 
-" Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent
+
+" NERDTree config
+let NERDTreeChDirMode=2
+let NERDTreeIgnore=['\env','\.vim$', '\~$', '\.swp$']
+let NERDTreeSortOrder=['\/$', '*', '\.swp$', '\~$']
+let NERDTreeShowBookmarks=1
+let NERDTreeHightlightCursorline=1
+
+" Intelligent search settings
+set incsearch
+set ignorecase
+set wildmenu
+set wildignore+=.git,.bundle
+
