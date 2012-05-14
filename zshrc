@@ -1,7 +1,6 @@
 autoload -U colors && colors
-autoload -U compinit promptinit
+autoload -U compinit
 compinit
-promptinit
 
 # Ignore duplicates and share history between sessions.
 setopt histignorealldups sharehistory
@@ -16,10 +15,8 @@ zstyle ':completion:*:kill:*'   force-list always
 
 setopt completealiases
 
-# This will set the default prompt to the walters theme
-prompt walters
 source $HOME/.zsh/git-prompt/zshrc.sh
-PROMPT='%B%m%~%b$(git_super_status) %# '
+PROMPT='%B%~%b$(git_super_status)%# '
 
 export EDITOR=vim
 
