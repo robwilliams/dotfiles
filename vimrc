@@ -53,9 +53,6 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 set background=dark
 colorscheme solarized
 
-" Easier to type than \
-let mapleader=","
-
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
