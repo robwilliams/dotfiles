@@ -17,6 +17,7 @@ setopt completealiases
 
 source $HOME/.zsh/git-prompt/zshrc.sh
 PROMPT='%B%~%b$(git_super_status)%# '
+RPROMPT=""
 
 export EDITOR=vim
 
