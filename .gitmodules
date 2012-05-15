@@ -22,3 +22,6 @@
 [submodule "vim/bundle/vim-bundler"]
 	path = vim/bundle/vim-bundler
 	url = git://github.com/tpope/vim-bundler.git
+[submodule "zsh/git-prompt"]
+	path = zsh/git-prompt
+	url = git://github.com/olivierverdier/zsh-git-prompt.git
