@@ -1,0 +1,10 @@
+#!/bin/sh -x
+# Exit if any error is encountered:
+set -o errexit
+
+# Hack: Merge the latest changes from the develop branch into your current branch
+CURRENT=`git branch | grep '\*' | awk '{print $2}'`
+git checkout develop
+git pull --rebase origin develop
+git checkout ${CURRENT}
+git rebase develop

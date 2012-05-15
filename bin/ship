@@ -1,0 +1,9 @@
+#!/bin/sh -x
+# Exit if any error is encountered:
+set -o errexit
+
+CURRENT=`git branch | grep '\*' | awk '{print $2}'`
+git checkout develop
+git merge ${CURRENT}
+git push origin develop
+git checkout ${CURRENT}

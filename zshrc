@@ -38,7 +38,7 @@ alias -g nano="vim" # Man up!
 alias gst="git status"
 alias gc="git commit -v"
 alias gap="git add -p"
-
+alias ssp="hack && rake && ship"
 # Directory listing aliases
 alias sl="ls"
 alias ks="ls"
@@ -55,7 +55,7 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_HEAP_FREE_MIN=500000
 
-PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$HOME/dotfiles/bin:/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # This loads RVM into a shell session but only if it is installed.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
