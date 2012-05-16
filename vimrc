@@ -7,6 +7,8 @@ filetype plugin indent on         " Turn on file type detection.
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
+set t_Co=256                      " 256 colors.
+
 set autoindent                    " Indentation and
 set smartindent                   " Smart indentation
 
@@ -44,7 +46,6 @@ set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set tabstop=2                     " Global tab width.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
-"set colorcolumn=80                " Highlight line over 80 cols.
 set laststatus=2                  " Show the status line all the time
 
 " Useful status information at bottom of screen
@@ -78,4 +79,3 @@ set incsearch
 set ignorecase
 set wildmenu
 set wildignore+=.git,.bundle
-

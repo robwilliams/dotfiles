@@ -1,4 +1,4 @@
-set guifont=Inconsolata-dz:18     " Font family and font size.
+set guifont=Inconsolata-dz:h14     " Font family and font size.
 set antialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
