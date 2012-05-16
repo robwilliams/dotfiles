@@ -12,6 +12,7 @@ alias gst="git status"
 alias gc="git commit -v"
 alias gap="git add -p"
 alias ssp="hack && rake && ship"
+
 # Directory listing aliases
 alias sl="ls"
 alias ks="ls"
@@ -20,3 +21,6 @@ alias ll="ls -al"
 alias la="ls -al"
 
 alias be="bundle exec "
+
+alias -g stinkyink=~/Projects/stinkyink/stinkyink
+alias -g axis=~/Projects/stinkyink/axis
