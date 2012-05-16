@@ -2,8 +2,6 @@ autoload -U colors && colors
 autoload -U compinit
 compinit
 
-# Ignore duplicates and share history between sessions.
-setopt histignorealldups sharehistory
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
