@@ -1,7 +1,7 @@
-autoload -U colors && colors
 autoload -U compinit
+autoload -U bashcompinit
 compinit
-
+bashcompinit
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
