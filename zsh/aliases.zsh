@@ -25,3 +25,7 @@ alias be="bundle exec "
 # Project aliases
 alias -g stinkyink=~/Projects/stinkyink/stinkyink
 alias -g axis=~/Projects/stinkyink/axis
+
+# CHMOD helpers (work just like chmod but only on files or directories)
+chmoddirs () { find $2 -type d -exec chmod $1 {} \; } 
+chmodfiles () { find $2 -type f -exec chmod $1 {} \; } 
