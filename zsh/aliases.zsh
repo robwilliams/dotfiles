@@ -22,5 +22,6 @@ alias la="ls -al"
 
 alias be="bundle exec "
 
+# Project aliases
 alias -g stinkyink=~/Projects/stinkyink/stinkyink
 alias -g axis=~/Projects/stinkyink/axis
