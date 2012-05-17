@@ -1,0 +1,7 @@
+--smart-case
+--follow
+--nogroup
+--sort-files
+--type-set=sass=.sass,.scss
+--ignore-dir=coverage
+--ignore-dir=log
