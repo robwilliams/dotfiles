@@ -19,7 +19,7 @@ alias ks="ls"
 alias l="ls"
 alias ll="ls -al"
 alias la="ls -al"
-
+alias tree="tree -C"
 alias be="bundle exec "
 
 # Project aliases
