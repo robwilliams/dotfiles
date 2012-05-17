@@ -5,6 +5,7 @@
   diff   = auto
   status = auto
   branch = auto
+	ui = auto
 [core]
   excludesfile = ~/.gitignore_global
   autocrlf     = input
@@ -21,3 +22,5 @@
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
 
+[advice]
+	statusHints = false
