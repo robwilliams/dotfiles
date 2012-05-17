@@ -8,6 +8,7 @@ filetype plugin indent on         " Turn on file type detection.
 runtime macros/matchit.vim        " Load the matchit plugin.
 
 set t_Co=256                      " 256 colors.
+set mouse=a                       " Enable mouse support.
 
 set autoindent                    " Indentation and
 set smartindent                   " Smart indentation
