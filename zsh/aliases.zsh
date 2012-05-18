@@ -23,8 +23,10 @@ alias tree="tree -C"
 alias be="bundle exec "
 
 # Project aliases
-alias -g stinkyink=~/Projects/stinkyink/stinkyink
-alias -g axis=~/Projects/stinkyink/axis
+stinkyink=~/Projects/stinkyink/stinkyink
+axis=~/Projects/stinkyink/axis
+steve=~/Projects/stinkyink/steve
+puppet=~/Projects/stinkyink/puppet
 
 # CHMOD helpers (work just like chmod but only on files or directories)
 chmoddirs () { find $2 -type d -exec chmod $1 {} \; } 
