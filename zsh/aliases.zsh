@@ -27,6 +27,7 @@ stinkyink=~/Projects/stinkyink/stinkyink
 axis=~/Projects/stinkyink/axis
 steve=~/Projects/stinkyink/steve
 puppet=~/Projects/stinkyink/puppet
+active_press=~/Projects/robwilliams/active_press
 
 # CHMOD helpers (work just like chmod but only on files or directories)
 chmoddirs () { find $2 -type d -exec chmod $1 {} \; } 
