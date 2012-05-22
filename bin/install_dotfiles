@@ -1,7 +1,13 @@
 #!/bin/bash
+cd ~/dotfiles
+
 for file in tmux.conf zsh zshrc gitignore_global vim gvimrc vimrc ssh/config gitconfig gemrc irbrc ackrc
 do
   echo "Linking $file to ~/.$file..";
   rm ~/.$file;
   ln -sf ~/dotfiles/$file ~/.$file;
 done
+
+# Update thirtparty vim plugins and such
+git submodule init
+git submodule update
