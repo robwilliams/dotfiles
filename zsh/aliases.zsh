@@ -13,6 +13,8 @@ alias gc="git commit -v"
 alias gap="git add -p"
 alias ssp="hack && rake && ship"
 
+alias s="sudo "
+
 # Directory listing aliases
 alias sl="ls"
 alias ks="ls"
