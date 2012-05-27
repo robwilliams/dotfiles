@@ -6,6 +6,8 @@
   status = auto
   branch = auto
 	ui = auto
+[alias]
+  fr = pull --rebase
 [core]
   excludesfile = ~/.gitignore_global
   autocrlf     = input
