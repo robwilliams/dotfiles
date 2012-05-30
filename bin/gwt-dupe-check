@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require 'csv'
+require 'net/http'
+
+rows = CSV.read($ARGV[0])
+
+rows.delete_at(0)
+rows.each do |title, uris|
+  uris = uris.split("|").map(&:strip)
+
+  # We need to check if this is real dupe content or if it has already been
+  # resolved. 
+  uris = uris.inject([]) do |result, uri|
+    result << uri
+  end
+
+end
