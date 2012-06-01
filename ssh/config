@@ -1,3 +1,7 @@
+Host *stinkyink*
+  IdentityFile ~/.ssh/work_rsa
+  User rob
+
 Host andromeda
   HostName andromeda.r-williams.com
   User rob
