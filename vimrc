@@ -58,6 +58,7 @@ set statusline+=%=                " Switch to the right side
 set statusline+=%l                " Current line
 set statusline+=/                 " Separator
 
+set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
 
 "set background=dark
 colorscheme railscasts
