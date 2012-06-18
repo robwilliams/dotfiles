@@ -1,0 +1,8 @@
+#!/bin/bash
+images_path="/Images/";
+
+for dir in `ls $images_path | sort -r | grep -v .aplibrary` 
+do
+  echo "Backing up $dir..";
+  rsync -av /Images/$dir  htpc-backup:/mnt/raid/backup/images/
+done
