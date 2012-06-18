@@ -14,3 +14,19 @@ if defined?(Stinkyink)
   # Enable Auditing
   Auditor::User.current_user = User.find_by_email("rob@stinkyink.com") if defined?(Auditor)
 end
+
+class Object
+
+  include Rails::ConsoleMethods if defined?(Rails)
+
+  def vim(method_name)
+    file, line = method(method_name).source_location
+    fork do
+      exec("vim +#{line} '#{file}'")
+    end
+    Process.wait
+    reload! if defined?(Rails)
+  end
+
+  alias :v :vim
+end
