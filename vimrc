@@ -33,7 +33,7 @@ set ls=2
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
-set wrap                          " Turn on line wrapping.
+"set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
 set title                         " Set the terminal's title
@@ -50,8 +50,6 @@ set expandtab                     " Use spaces instead of tabs
 set laststatus=2                  " Show the status line all the time
 
 " Useful status information at bottom of screen
-"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-
 set statusline=[%L]               " Total lines
 set statusline+=%f                " Path to the file
 set statusline+=%=                " Switch to the right side
@@ -60,8 +58,8 @@ set statusline+=/                 " Separator
 
 set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
 
-"set background=dark
-colorscheme railscasts
+set background=dark
+colorscheme solarized 
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -88,3 +86,9 @@ set incsearch
 set ignorecase
 set wildmenu
 set wildignore+=.git,.bundle
+
+" Highlight long lines.
+if version >= 703
+  "highlight ColorColumn ctermbg=233 guibg=#464646
+  set cc=+1 tw=80
+endif
