@@ -9,6 +9,8 @@ end
 
 run 'mv config/database.yml config/database.yml.example'
 run 'rm public/index.html'
+run 'rm README.rdoc'
+run 'touch README.md'
 
 git :init
 git add: '.'
@@ -21,46 +23,10 @@ git commit: '-am \'Initial Commit\''
 
 if bootstrap_selected = yes?('Would you like to use Twitter Bootstrap?')
 
-  gem 'anjlab-bootstrap-rails', version: '>= 2.0', require: 'bootstrap-rails'
-
-  create_file 'app/assets/stylesheets/app_bootstrap.css.scss' do
-<<-CSS
-// override any variable in this file to customise bootstrap
-// https://github.com/anjlab/bootstrap-rails/blob/master/vendor/twitter/scss/variables.scss
-
-// import original bootstrap
-@import "bootstrap";
-@import "responsive";
-CSS
-  end
-
-  inject_into_file('app/assets/stylesheets/application.css', 
-                   after: ' *= require_self') do 
-    "\n *= require app_bootstrap"
-  end
-
-  inject_into_file('app/assets/javascripts/application.js', 
-                   after: '//= require jquery_ujs') do 
-<<JS
-
-// Include all twitter's javascripts
-//= require bootstrap
-// Or pick any of them yourself
-// require bootstrap-transition
-// require bootstrap-alert
-// require bootstrap-modal
-// require bootstrap-dropdown
-// require bootstrap-scrollspy
-// require bootstrap-tab
-// require bootstrap-tooltip
-// require bootstrap-popover
-// require bootstrap-button
-// require bootstrap-collapse
-// require bootstrap-carousel
-// require bootstrap-typeahead
-JS
-  end
-
+  gem 'twitter-bootstrap-rails'
+  run 'bundle install'
+  generate('bootstrap:install')
+  generate('bootstrap:layout application fixed')
   git add: '.'
   git commit: '-m \'Added Twitter Bootstrap\''
 end
