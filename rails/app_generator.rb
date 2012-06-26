@@ -26,7 +26,6 @@ if bootstrap_selected = yes?('Would you like to use Twitter Bootstrap?')
   gem 'twitter-bootstrap-rails'
   run 'bundle install'
   generate('bootstrap:install')
-  generate('bootstrap:layout application fixed')
   git add: '.'
   git commit: '-m \'Added Twitter Bootstrap\''
 end
