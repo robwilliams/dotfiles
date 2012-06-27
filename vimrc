@@ -59,7 +59,7 @@ set statusline+=/                 " Separator
 set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
 
 set background=dark
-colorscheme solarized 
+colorscheme railscasts 
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -74,6 +74,7 @@ map <leader>tm :tabmove
 
 " NERDTree Mappings
 nmap <leader>n :NERDTreeToggle<cr>
+nmap <leader>N :NERDTreeFind<CR>
 
 
 " NERDTree config
@@ -89,6 +90,6 @@ set wildignore+=.git,.bundle
 
 " Highlight long lines.
 if version >= 703
-  "highlight ColorColumn ctermbg=233 guibg=#464646
+  highlight ColorColumn ctermbg=233 guibg=#464646
   set cc=+1 tw=80
 endif
