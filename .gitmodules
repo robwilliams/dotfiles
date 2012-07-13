@@ -43,3 +43,6 @@
 [submodule "vim/bundle/greplace"]
 	path = vim/bundle/greplace
 	url = git://github.com/vim-scripts/greplace.vim.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
