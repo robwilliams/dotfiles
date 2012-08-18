@@ -53,8 +53,6 @@ set laststatus=2                  " Show the status line all the time
 set statusline=[%L]               " Total lines
 set statusline+=%f                " Path to the file
 set statusline+=%=                " Switch to the right side
-set statusline+=%l                " Current line
-set statusline+=/                 " Separator
 
 set ttymouse=xterm2
 set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
@@ -80,7 +78,7 @@ nmap <leader>N :NERDTreeFind<CR>
 
 " NERDTree config
 let NERDTreeChDirMode=2
-let NERDTreeShowBookmarks=1
+" let NERDTreeShowBookmarks=1
 let NERDTreeHightlightCursorline=1
 
 " Intelligent search settings
