@@ -54,7 +54,7 @@ set statusline=[%L]               " Total lines
 set statusline+=%f                " Path to the file
 set statusline+=%=                " Switch to the right side
 
-set ttymouse=xterm2
+set ttymouse=xterm2               " Allows mouse support to work in a tmux session
 set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
 
 set background=dark
@@ -71,10 +71,21 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
+" Buffer mappings.
+map <leader>bb :badd 
+map <leader>bc :bdelete<cr>
+map <leader>bn :bnext<cr>
+map <leader>bp :bprevious<cr>
+
+" CtrlP Mappings
+nmap <leader>t :CtrlP<cr>
+nmap <leader>a :Ack 
+
 " NERDTree Mappings
 nmap <leader>n :NERDTreeToggle<cr>
-nmap <leader>N :NERDTreeFind<CR>
+nmap <leader>N :NERDTreeFind<CR>   " Finds the current file and selects it
 
+nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
 
 " NERDTree config
 let NERDTreeChDirMode=2
@@ -89,6 +100,8 @@ set wildignore+=.git,.bundle
 
 " Highlight long lines.
 if version >= 703
-  highlight ColorColumn ctermbg=233 guibg=#464646
+  highlight ColorColumn ctermbg=233
   set cc=+1 tw=80
 endif
+
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
