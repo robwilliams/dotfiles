@@ -60,6 +60,14 @@ set pastetoggle=<F2>              " Allows you to paste from clipboard without a
 set background=dark
 colorscheme railscasts
 
+command -nargs=* FindReplace call FindReplace(<f-args>)
+function! FindReplace(find, replace)
+  exe ':args `ack -l ' . a:find . '`'
+  exe ':argdo %s/' . a:find . '/' . a:replace . '/gc | update'
+endfunction
+
+map <leader>fr :FindReplace 
+
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
