@@ -7,13 +7,3 @@ Host andromeda
   User rob
   Port 4977
 
-Host htpc-backup
-  HostName 192.168.0.3
-  User rob
-  Port 22
-  IdentityFile ~/.ssh/passless_rsa
-
-Host htpc
-  HostName 192.168.0.3
-  User rob
-  Port 22
