@@ -113,3 +113,8 @@ if version >= 703
 endif
 
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
+
+let LOCALVIMRC = expand("~/.vimrc.local")
+if filereadable(LOCALVIMRC)
+  exe "source " . LOCALVIMRC 
+endif
