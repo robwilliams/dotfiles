@@ -24,6 +24,8 @@ alias la="ls -al"
 alias tree="tree -C"
 alias be="bundle exec "
 
+alias -g home_tmux="home -t tmux a"
+
 # Project aliases
 stinkyink=~/Projects/stinkyink/stinkyink
 axis=~/Projects/stinkyink/axis
