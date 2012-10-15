@@ -14,6 +14,7 @@ alias gap="git add -p"
 alias ssp="hack && rake && ship"
 
 alias s="sudo "
+alias sr="script/rails "
 
 # Directory listing aliases
 alias sl="ls"
