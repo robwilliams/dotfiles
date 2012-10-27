@@ -90,6 +90,8 @@ map <leader>bp :bprevious<cr>
 nmap <leader>t :CtrlP<cr>
 nmap <leader>a :Ack 
 
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
 " NERDTree Mappings
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>N :NERDTreeFind<CR>   " Finds the current file and selects it
