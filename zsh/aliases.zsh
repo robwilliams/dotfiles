@@ -1,3 +1,5 @@
+alias wakescreen="osascript -e 'tell application "System Events" to key code 123'"
+
 # If the mate command doesn't exist then use default EDITOR instead.
 if (( $+commands[mate] )); then
   # it exists
