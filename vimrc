@@ -56,7 +56,6 @@ set statusline+=%=                " Switch to the right side
 
 set ttymouse=xterm2               " Allows mouse support to work in a tmux session
 set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
-set clipboard=unnamedplus         " Use the system clipboard for default copy paste.
 
 set background=dark
 colorscheme railscasts
