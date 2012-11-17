@@ -1,6 +1,3 @@
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/vim-rails"]
 	path = vim/bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
@@ -16,12 +13,6 @@
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
-[submodule "vim/bundle/vim-rake"]
-	path = vim/bundle/vim-rake
-	url = git://github.com/tpope/vim-rake.git
-[submodule "vim/bundle/vim-bundler"]
-	path = vim/bundle/vim-bundler
-	url = git://github.com/tpope/vim-bundler.git
 [submodule "zsh/git-prompt"]
 	path = zsh/git-prompt
 	url = git://github.com/olivierverdier/zsh-git-prompt.git
@@ -31,15 +22,9 @@
 [submodule "vim/bundle/vim-endwise"]
 	path = vim/bundle/vim-endwise
 	url = git://github.com/tpope/vim-endwise.git
-[submodule "vim/bundle/command-t"]
-	path = vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/tslime"]
-	path = vim/bundle/tslime
-	url = https://github.com/kikijump/tslime.vim.git
 [submodule "vim/bundle/greplace"]
 	path = vim/bundle/greplace
 	url = git://github.com/vim-scripts/greplace.vim.git
