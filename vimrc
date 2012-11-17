@@ -85,9 +85,15 @@ map <leader>bc :bdelete<cr>
 map <leader>bn :bnext<cr>
 map <leader>bp :bprevious<cr>
 
+nmap <leader>a :Ack 
+
+" Vimux Mappings
+let VimuxUseNearestPane = 1
+map <leader>vp :VimuxPromptCommand<CR>
+map <leader>vl :VimuxRunLastCommand<CR>
+
 " CtrlP Mappings
 nmap <leader>t :CtrlP<cr>
-nmap <leader>a :Ack 
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
