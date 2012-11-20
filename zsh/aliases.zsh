@@ -1,21 +1,8 @@
-alias wakescreen="osascript -e 'tell application "System Events" to key code 123'"
-
-# If the mate command doesn't exist then use default EDITOR instead.
-if (( $+commands[mate] )); then
-  # it exists
-else
-  alias -g mate="vim"
-fi
-
-alias -g nano="vim" # Man up!
-
 # GIT aliases
 alias gst="git status"
 alias gc="git commit -v"
 alias gap="git add -p"
-alias ssp="hack && rake && ship"
 
-alias s="sudo "
 alias sr="script/rails "
 
 # Directory listing aliases
@@ -34,7 +21,8 @@ stinkyink=~/Projects/stinkyink/stinkyink
 axis=~/Projects/stinkyink/axis
 steve=~/Projects/stinkyink/steve
 puppet=~/Projects/stinkyink/puppet
-active_press=~/Projects/robwilliams/active_press
+dotfiles=~/dotfiles
+corrency=~/Projects/robwilliams/corrency
 
 # CHMOD helpers (work just like chmod but only on files or directories)
 chmoddirs () { find $2 -type d -exec chmod $1 {} \; } 
