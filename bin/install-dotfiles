@@ -13,5 +13,3 @@ done
 # Update thirtparty vim plugins and such
 git submodule init
 git submodule update
-
-brew install reattach-to-user-namespace
