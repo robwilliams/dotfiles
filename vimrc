@@ -103,6 +103,9 @@ nmap <leader>N :NERDTreeFind<CR>   " Finds the current file and selects it
 
 nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
 
+" Remove trailing whitespace with :RMTWS.
+command! RMTWS :execute '%s/\s\+$//e'
+
 " NERDTree config
 let NERDTreeChDirMode=2
 " let NERDTreeShowBookmarks=1
