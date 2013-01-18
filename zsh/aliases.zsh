@@ -1,5 +1,5 @@
 # GIT aliases
-alias gst="git status"
+alias gst="git status -sb"
 alias gc="git commit -v"
 alias gap="git add -p"
 
