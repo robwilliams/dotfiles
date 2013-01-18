@@ -99,19 +99,10 @@ nmap <leader>t :CtrlP<cr>
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-" NERDTree Mappings
-nmap <leader>n :NERDTreeToggle<cr>
-nmap <leader>N :NERDTreeFind<CR>   " Finds the current file and selects it
-
 nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
 
 " Remove trailing whitespace with :RMTWS.
 command! RMTWS :execute '%s/\s\+$//e'
-
-" NERDTree config
-let NERDTreeChDirMode=2
-" let NERDTreeShowBookmarks=1
-let NERDTreeHightlightCursorline=1
 
 " Intelligent search settings
 set incsearch
