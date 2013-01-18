@@ -121,11 +121,8 @@ set wildignore+=.git,.bundle
 
 " Highlight long lines.
 if version >= 703
-  highlight ColorColumn ctermbg=233
   set cc=+1 tw=80
 endif
-
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 
 let LOCALVIMRC = expand("~/.vimrc.local")
 if filereadable(LOCALVIMRC)
