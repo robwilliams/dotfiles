@@ -87,9 +87,7 @@ map <leader>bc :bdelete<cr>
 map <leader>bn :bnext<cr>
 map <leader>bp :bprevious<cr>
 
-nmap <leader>a :Ack
-nmap <leader>e :Explore
-nmap <leader>ve :Vexplore
+nmap <leader>a :Ack 
 
 " Vimux Mappings
 let VimuxUseNearestPane = 1
@@ -101,6 +99,8 @@ nmap <leader>t :CtrlP<cr>
 
 " NetRW Mappings
 nmap <leader>n :Explore<cr>
+nmap <leader>e :Explore<cr>
+nmap <leader>ve :Vexplore<cr>
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
