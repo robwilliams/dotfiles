@@ -68,7 +68,7 @@ function! FindReplace(find, replace)
   exe ':argdo %s/' . a:find . '/' . a:replace . '/gc | update'
 endfunction
 
-map <leader>fr :FindReplace 
+map <leader>fr :FindReplace
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -82,12 +82,14 @@ map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
 " Buffer mappings.
-map <leader>bb :badd 
+map <leader>bb :badd
 map <leader>bc :bdelete<cr>
 map <leader>bn :bnext<cr>
 map <leader>bp :bprevious<cr>
 
-nmap <leader>a :Ack 
+nmap <leader>a :Ack
+nmap <leader>e :Explore
+nmap <leader>ve :Vexplore
 
 " Vimux Mappings
 let VimuxUseNearestPane = 1
@@ -96,6 +98,9 @@ map <leader>vl :VimuxRunLastCommand<CR>
 
 " CtrlP Mappings
 nmap <leader>t :CtrlP<cr>
+
+" NetRW Mappings
+nmap <leader>n :Explore<cr>
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
@@ -117,5 +122,5 @@ endif
 
 let LOCALVIMRC = expand("~/.vimrc.local")
 if filereadable(LOCALVIMRC)
-  exe "source " . LOCALVIMRC 
+  exe "source " . LOCALVIMRC
 endif
