@@ -11,6 +11,6 @@ Host home
   HostName home.robwillia.ms
   User rob
   Port 22
-  LocalForward 8080 192.168.0.9:8080
-  LocalForward 8081 192.168.0.9:8081
-  LocalForward 5050 192.168.0.9:5050
+  LocalForward 8080 192.168.0.4:8080
+  LocalForward 8081 192.168.0.4:8081
+  LocalForward 5050 192.168.0.4:5050
