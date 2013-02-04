@@ -3,5 +3,7 @@
 --nogroup
 --sort-files
 --type-set=sass=.sass,.scss
+--type-add=ruby=.haml,.rake,.pp
 --ignore-dir=coverage
 --ignore-dir=log
+--ignore-dir=tmp
