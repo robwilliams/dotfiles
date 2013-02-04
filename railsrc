@@ -1,1 +1,1 @@
--d postgresql --skip-test-unit -m ~/dotfiles/rails/app_generator.rb
+-d postgresql -T -m ~/dotfiles/rails/app_generator.rb
