@@ -3,7 +3,7 @@ cd ~/dotfiles
 
 git pull --rebase
 
-for file in tmux.conf zsh zshrc gitignore_global vim gvimrc vimrc ssh/config gitconfig gemrc irbrc ackrc
+for file in tmux.conf zsh zshrc gitignore_global vim gvimrc vimrc ssh/config gitconfig gemrc irbrc ackrc railsrc
 do
   echo "Linking $file to ~/.$file..";
   rm ~/.$file;

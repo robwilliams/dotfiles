@@ -1,50 +1,22 @@
-gem_group :development, :test do 
-  gem 'rspec-rails'
-end
-generate('rspec:install')
+gem 'compass-rails', group: :assets
+gem 'foreman', require: false, group: :development
+gem 'rspec-rails', group: [:development, :test]
+gem 'shoulda-matchers', group: :test
 
-gem_group :development do 
-  gem 'thin'
-end
+run 'bundle:install'
+generate 'rspec:install'
 
+remove_dir 'doc'
+remove_file 'README.rdoc'
+remove_file 'public/index.html'
+create_file 'README.md'
+create_file 'Procfile', "web: bundle exec rails server -p $PORT"
 run 'mv config/database.yml config/database.yml.example'
-run 'rm public/index.html'
-run 'rm README.rdoc'
-run 'touch README.md'
+append_file '.gitignore', 'config/database.yml'
 
 git :init
 git add: '.'
+git commit: "-m 'Initial Commit'"
 
-append_file '.gitignore' do
-  "config/database.yml\n"
-end
-
-git commit: '-am \'Initial Commit\''
-
-if bootstrap_selected = yes?('Would you like to use Twitter Bootstrap?')
-
-  gem 'twitter-bootstrap-rails'
-  run 'bundle install'
-  generate('bootstrap:install')
-  git add: '.'
-  git commit: '-m \'Added Twitter Bootstrap\''
-end
-
-if yes?("Do you want to install simple form?")
-  gem 'simple_form'
-
-  if bootstrap_selected
-    generate('simple_form:install --bootstrap')
-  else
-    generate('simple_form:install')
-  end
-
-  git add: '.'
-  git commit: '-m \'Added Simple Form\''
-end
-
-if yes?("Initialise the application?")
-  run 'cp config/database.yml.example config/database.yml'
-  rake('db:create')
-  rake('db:migrate')
-end
+run 'cp config/database.yml.example config/database.yml'
+#rake('db:create')
