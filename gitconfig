@@ -19,5 +19,3 @@
   user = robwilliams
 [advice]
 	statusHints = false
-[push]
-	default = simple
