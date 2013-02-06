@@ -106,7 +106,6 @@ set incsearch
 set ignorecase
 set wildmenu
 set wildignore+=.git,.bundle
-
 set colorcolumn=80
 
 let LOCALVIMRC = expand("~/.vimrc.local")
