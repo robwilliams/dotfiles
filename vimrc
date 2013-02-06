@@ -49,18 +49,10 @@ set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
 set laststatus=2                  " Show the status line all the time
 
-" Useful status information at bottom of screen
-set statusline=[%L]               " Total lines
-set statusline+=%f                " Path to the file
-set statusline+=%=                " Switch to the right side
-
 set ttymouse=xterm2               " Allows mouse support to work in a tmux session
 set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
 
-set background=dark
-colorscheme solarized
-
-call togglebg#map("<F6>")
+colorscheme railscasts-256
 
 command -nargs=* FindReplace call FindReplace(<f-args>)
 function! FindReplace(find, replace)
@@ -115,10 +107,7 @@ set ignorecase
 set wildmenu
 set wildignore+=.git,.bundle
 
-" Highlight long lines.
-if version >= 703
-  set cc=+1 tw=80
-endif
+set colorcolumn=80
 
 let LOCALVIMRC = expand("~/.vimrc.local")
 if filereadable(LOCALVIMRC)
