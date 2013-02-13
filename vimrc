@@ -95,6 +95,8 @@ nmap <leader>e :Explore<cr>
 nmap <leader>ve :Vexplore<cr>
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+set backupdir=~/.vim/tmp,.
+set directory=~/.vim/tmp,.
 
 nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
 
