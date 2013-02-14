@@ -88,13 +88,13 @@ map <leader>vl :VimuxRunLastCommand<CR>
 
 " CtrlP Mappings
 nmap <leader>t :CtrlP<cr>
+let g:ctrlp_working_path_mode = 0
 
 " NetRW Mappings
 nmap <leader>n :Explore<cr>
 nmap <leader>e :Explore<cr>
 nmap <leader>ve :Vexplore<cr>
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 set backupdir=~/.vim/tmp,.
 set directory=~/.vim/tmp,.
 
