@@ -18,13 +18,9 @@ set showmode                      " Display the mode you're in.
 
 set backspace=indent,eol,start    " Intuitive backspacing.
 
-set hidden                        " Handle multiple buffers better.
-
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
-
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
+set wildignore+=.git,.bundle
 
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
@@ -52,63 +48,32 @@ set laststatus=2                  " Show the status line all the time
 set ttymouse=xterm2               " Allows mouse support to work in a tmux session
 set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
 
-colorscheme railscasts-256
-
-command -nargs=* FindReplace call FindReplace(<f-args>)
-function! FindReplace(find, replace)
-  exe ':args `ack -l ' . a:find . '`'
-  exe ':argdo %s/' . a:find . '/' . a:replace . '/gc | update'
-endfunction
-
-map <leader>fr :FindReplace
-
-" Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
-
-" Buffer mappings.
-map <leader>bb :badd
-map <leader>bc :bdelete<cr>
-map <leader>bn :bnext<cr>
-map <leader>bp :bprevious<cr>
-
-nmap <leader>a :Ack 
-
-" Vimux Mappings
-let VimuxUseNearestPane = 1
-map <leader>vp :VimuxPromptCommand<CR>
-map <leader>vl :VimuxRunLastCommand<CR>
-
-" CtrlP Mappings
-nmap <leader>t :CtrlP<cr>
-let g:ctrlp_working_path_mode = 0
-
-" NetRW Mappings
-nmap <leader>n :Explore<cr>
-nmap <leader>e :Explore<cr>
-nmap <leader>ve :Vexplore<cr>
-
 set backupdir=~/.vim/tmp,.
 set directory=~/.vim/tmp,.
 
+" Intelligent search settings
+set colorcolumn=80
+
+colorscheme railscasts-256
+
+" Tab mappings.
+map <leader>tt :tabnew<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+
+" CtrlP
+let g:ctrlp_working_path_mode = 0
+
+" NetRW Mappings
+nmap <leader>e :Explore<cr>
+nmap <leader>ve :Vexplore<cr>
+nmap <leader>se :Sexplore<cr>
+
 nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
+nmap <C-L> :TagbarToggle<CR>
 
 " Remove trailing whitespace with :RMTWS.
 command! RMTWS :execute '%s/\s\+$//e'
-
-" Intelligent search settings
-set incsearch
-set ignorecase
-set wildmenu
-set wildignore+=.git,.bundle
-set colorcolumn=80
 
 let LOCALVIMRC = expand("~/.vimrc.local")
 if filereadable(LOCALVIMRC)

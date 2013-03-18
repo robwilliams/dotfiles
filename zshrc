@@ -20,3 +20,4 @@ export RUBY_GC_MALLOC_LIMIT=79000000
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/share/npm/bin:$PATH"
