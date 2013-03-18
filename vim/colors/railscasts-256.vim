@@ -97,4 +97,5 @@ highlight SpellCap                  guifg=#D0D0FF ctermfg=189 guibg=NONE ctermbg
 highlight MatchParen                guifg=#FFFFFF ctermfg=15 guibg=#005f5f ctermbg=23
 
 highlight Pmenu ctermbg=238 gui=bold
+highlight SignColumn ctermbg=black
 
