@@ -11,6 +11,8 @@ Listen.to('./app', './spec', filter: /\.rb$/) do |modified, added, removed|
   specs, sources = files.partition {|f| f =~ /_spec\.rb$/ }
   specs += sources.map{|f| f.sub('app', 'spec').sub('.rb', '_spec.rb') }
 
+  specs.select! {|file| File.exist? file }
+
   system("rspec", *specs) if specs.any?
 
   puts WAITING_ICON
