@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 cd ~/dotfiles
 
 git add .
@@ -13,8 +13,13 @@ do
   ln -sf ~/dotfiles/$file ~/.$file;
 done
 
-# Update thirtparty vim plugins and such
+# Update thirdparty vim plugins and such
 git submodule init
 git submodule update
 
 bundle
+
+mkdir -p /Applications/terminal-notifier.app/Contents/MacOS/
+ln -s `bundle show terminal-notifier`/bin/terminal-notifier \
+      /Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier 
+
