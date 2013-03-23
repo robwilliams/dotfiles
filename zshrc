@@ -20,3 +20,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Node JS
 export PATH="/usr/local/share/npm/bin:$PATH"
+
+bindkey -v
+bindkey -M vicmd '/' history-incremental-search-backward
