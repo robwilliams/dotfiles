@@ -6,6 +6,7 @@ puts WAITING_ICON = "↻"
 
 Listen.to('./app', './spec', filter: /\.rb$/) do |modified, added, removed|
 
+  puts '...'
   files = (modified + added).map!{|f| f.sub(Dir.pwd + '/', '') }
 
   specs, sources = files.partition {|f| f =~ /_spec\.rb$/ }
