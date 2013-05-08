@@ -1,1 +1,1 @@
--d postgresql -T -m ~/dotfiles/rails/app_generator.rb
+-T -m ~/dotfiles/rails/app_generator.rb
