@@ -14,3 +14,8 @@ Host home
   LocalForward 8080 192.168.0.4:8080
   LocalForward 8081 192.168.0.4:8081
   LocalForward 5050 192.168.0.4:5050
+
+Host imac
+  HostName 192.168.0.2
+  User Rob
+  Port 22
