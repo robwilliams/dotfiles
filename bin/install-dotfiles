@@ -17,8 +17,6 @@ done
 git submodule init
 git submodule update
 
-bundle
-
 if [ "$(uname -s)" == 'Darwin' ]; then
   mkdir -p /Applications/terminal-notifier.app/Contents/MacOS/
   ln -s `bundle show terminal-notifier`/bin/terminal-notifier \
