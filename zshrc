@@ -17,6 +17,7 @@ PATH=/usr/local/share/npm/bin:$PATH
 PATH=/usr/local/sbin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=~/dotfiles/bin:$PATH
+PATH=./bin:$PATH
 
 ### rbenv
 if [[ -d ~/.rbenv ]]; then;
@@ -24,6 +25,5 @@ if [[ -d ~/.rbenv ]]; then;
   eval "$(rbenv init -)"
 fi
 
-PATH=./bin:$PATH
 
 export PATH
