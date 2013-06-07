@@ -3,7 +3,6 @@ alias gst="git status -sb"
 alias gc="git commit -v"
 alias gap="git add -p"
 
-alias sr="script/rails "
 
 # Directory listing aliases
 alias sl="ls"
@@ -13,7 +12,9 @@ alias ll="ls -al"
 alias la="ls -al"
 alias tree="tree -C"
 alias be="bundle exec "
+alias fr="bundle exec foreman run -e app_env"
 
+alias -g sr=" script/rails "
 alias -g with_tmux=" -t tmux a"
 alias imac_sleep="ssh imac 'pmset sleepnow'"
 
