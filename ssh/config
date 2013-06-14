@@ -1,5 +1,5 @@
-Host *stinkyink*
-  IdentityFile ~/.ssh/work_rsa
+Host stinkyink
+  HostName support2.stinkyink.com
   User rob
 
 Host andromeda
