@@ -1,6 +1,13 @@
-call pathogen#infect()
-
 set nocompatible                  " Must come first because it changes other options.
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
