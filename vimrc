@@ -18,6 +18,7 @@ Bundle 'ervandew/supertab'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'godlygeek/tabular'
+Bundle 'christoomey/vim-tmux-navigator'
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
