@@ -9,7 +9,7 @@ setopt cdablevarS # allows you to create project aliases i.e. frequent_project=~
 
 # Show contents of directory after cd-ing into it
 chpwd() {
-  ls -lrthG
+  ll
 }
 
 typeset -gU path
