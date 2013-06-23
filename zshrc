@@ -12,23 +12,18 @@ chpwd() {
   ls -lrthG
 }
 
-if [ -f /etc/profile ]; then;
-  PATH=""
-  source /etc/profile
-fi
+typeset -gU path
 
-PATH=/usr/local/heroku/bin:$PATH
-PATH=/usr/local/share/npm/bin:$PATH
-PATH=/usr/local/sbin:$PATH
-PATH=/usr/local/bin:$PATH
-PATH=~/dotfiles/bin:$PATH
+path=(/usr/local/heroku/bin $path)
+path=(/usr/local/share/npm/bin $path)
+path=(/usr/local/sbin $path)
+path=(/usr/local/bin $path)
+path=(~/dotfiles/bin $path)
 
 ### rbenv
 if [[ -d ~/.rbenv ]]; then;
-  PATH=~/.rbenv/bin:$PATH
+  path=(~/.rbenv/bin $path)
   eval "$(rbenv init -)"
 fi
 
-PATH=./bin:$PATH # For bundle binstubs
-
-export PATH
+path=(./bin $path) # For bundle binstubs
