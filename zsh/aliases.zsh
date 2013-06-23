@@ -1,3 +1,5 @@
+alias reload!="source ~/.zshrc && echo 'Reloaded!'" # ZSH reload!
+
 # GIT aliases
 alias gst="git status -sb"
 alias gc="git commit -v"
