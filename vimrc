@@ -20,6 +20,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'godlygeek/tabular'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'thoughtbot/vim-rspec'
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
