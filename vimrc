@@ -93,6 +93,11 @@ nmap <leader>se :Sexplore<cr>
 
 nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
 
+" Rspec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+
 " Remove trailing whitespace with :RMTWS.
 command! RMTWS :execute '%s/\s\+$//e'
 command! TODO :execute ':e ~/Dropbox/todo.txt'
