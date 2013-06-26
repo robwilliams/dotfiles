@@ -81,6 +81,8 @@ map <leader>tt :tabnew<cr>
 map <leader>tn :tabnext<cr>
 map <leader>tp :tabprevious<cr>
 
+map <leader>td :TODO<cr>
+
 " CtrlP
 let g:ctrlp_working_path_mode = 0
 
@@ -93,6 +95,7 @@ nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
 
 " Remove trailing whitespace with :RMTWS.
 command! RMTWS :execute '%s/\s\+$//e'
+command! TODO :execute ':e ~/Dropbox/todo.txt'
 
 let LOCALVIMRC = expand("~/.vimrc.local")
 if filereadable(LOCALVIMRC)
