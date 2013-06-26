@@ -12,18 +12,21 @@ chpwd() {
   ll
 }
 
-typeset -gU path
+path=(
+  ./bin
+  "$HOME/.rbenv/shims"
+  "$HOME/.rbenv/bin"
+  "$HOME/dotfiles/bin"
+  /usr/local/heroku/bin
+  /usr/local/share/npm/bin
+  /usr/local/sbin
+  /usr/local/bin
+  /usr/local/bin/bullshit
+  "$HOME/bin"
+  "$path[@]"
+)
 
-path=(/usr/local/heroku/bin $path)
-path=(/usr/local/share/npm/bin $path)
-path=(/usr/local/sbin $path)
-path=(/usr/local/bin $path)
-path=(~/dotfiles/bin $path)
+export PATH
+typeset -U path
 
-### rbenv
-if [[ -d ~/.rbenv ]]; then;
-  path=(~/.rbenv/bin $path)
-  eval "$(rbenv init -)"
-fi
-
-path=(./bin $path) # For bundle binstubs
+rationalize-path path
