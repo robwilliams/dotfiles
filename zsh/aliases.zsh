@@ -17,6 +17,7 @@ alias tree="tree -C"
 
 alias be="bundle exec "
 alias fr="bundle exec foreman run -e app_env"
+alias ":q"="exit"
 
 alias -g sr=" script/rails "
 alias -g with_tmux=" -t tmux a"
