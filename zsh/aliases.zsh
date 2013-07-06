@@ -23,7 +23,7 @@ alias -g sr=" script/rails "
 alias -g with_tmux=" -t tmux a"
 alias imac_sleep="ssh imac 'pmset sleepnow'"
 
-alias tmx="tmux attach -t $(print -P %1~) || tmux new -s $(print -P %1~)"
+tmx () { tmux attach -t $(print -P %1~) || tmux new -s $(print -P %1~); }
 
 typeset -gU cdpath
 cdpath=(~/Projects $cdpath)
