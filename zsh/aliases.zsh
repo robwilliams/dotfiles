@@ -22,6 +22,9 @@ alias ":q"="exit"
 alias -g sr=" script/rails "
 alias -g with_tmux=" -t tmux a"
 alias imac_sleep="ssh imac 'pmset sleepnow'"
+alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo 'Public key copied to clipboard.'"
+
 
 tmx () { tmux attach -t $(print -P %1~) || tmux new -s $(print -P %1~); }
 
