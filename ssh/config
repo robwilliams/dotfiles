@@ -15,7 +15,7 @@ Host home
   LocalForward 8081 127.0.0.1:8081
   LocalForward 5050 127.0.0.1:5050
   LocalForward 9091 127.0.0.1:9091
-  
+  LocalForward 4040 127.0.0.1:4040
 
 Host imac
   HostName 192.168.0.2
