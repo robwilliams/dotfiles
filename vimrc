@@ -23,6 +23,7 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-fugitive'
 Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'tpope/vim-eunuch'
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
