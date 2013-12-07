@@ -1,0 +1,2 @@
+#!/usr/bin/env zsh
+echo `osascript -e "set volume output muted true" -e "get volume settings"`

@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+level = ARGV[0].to_i * 10
+puts `osascript -e "set volume output volume #{level}" -e "get volume settings"`
