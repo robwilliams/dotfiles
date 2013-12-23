@@ -49,6 +49,7 @@ set wildmode=list:longest         " Complete files like a shell.
 set wildignore+=.git,.bundle
 
 set number                        " Show line numbers.
+set relativenumber                " Relative numbers make jumping easier
 set ruler                         " Show cursor position.
 set ls=2
 
