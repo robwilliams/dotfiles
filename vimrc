@@ -1,33 +1,6 @@
 set nocompatible                  " Must come first because it changes other options.
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'ervandew/supertab'
-Bundle 'godlygeek/tabular'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'rking/ag.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'SirVer/ultisnips'
-Bundle 'rodjek/vim-puppet'
-
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
@@ -90,9 +63,36 @@ map <leader>tp :tabprevious<cr>
 
 map <leader>td :TODO<cr>
 
-" bind K to grep word under cursor
-nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+" NetRW Mappings
+nmap <leader>e :Explore<cr>
+nmap <leader>ve :Vexplore<cr>
+nmap <leader>se :Sexplore<cr>
 
+nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
+
+" Remove trailing whitespace with :RMTWS.
+command! RMTWS :execute '%s/\s\+$//e'
+
+command! TODO :execute ':e ~/Dropbox/todo.txt'
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'ervandew/supertab'
+Bundle 'godlygeek/tabular'
+
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_working_path_mode = 0
+
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'rking/ag.vim'
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
@@ -103,28 +103,32 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+
+  " bind \ (backward slash) to grep shortcut
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Ag<SPACE>
 endif
 
-" CtrlP
-"let g:ctrlp_working_path_mode = 0
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" NetRW Mappings
-nmap <leader>e :Explore<cr>
-nmap <leader>ve :Vexplore<cr>
-nmap <leader>se :Sexplore<cr>
+Bundle 'scrooloose/nerdcommenter'
 
-nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
-
-" Rspec.vim mappings
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-dispatch'
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "Dispatch zeus rspec {spec}"
 
-" Remove trailing whitespace with :RMTWS.
-command! RMTWS :execute '%s/\s\+$//e'
-command! TODO :execute ':e ~/Dropbox/todo.txt'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'SirVer/ultisnips'
+Bundle 'rodjek/vim-puppet'
 
 let LOCALVIMRC = expand("~/.vimrc.local")
 if filereadable(LOCALVIMRC)
