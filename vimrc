@@ -90,6 +90,9 @@ map <leader>tp :tabprevious<cr>
 
 map <leader>td :TODO<cr>
 
+" bind K to grep word under cursor
+nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+
 " CtrlP
 let g:ctrlp_working_path_mode = 0
 
