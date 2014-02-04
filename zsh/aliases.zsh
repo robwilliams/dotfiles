@@ -15,11 +15,11 @@ alias ll="ls -alh"
 alias la="ll"
 alias tree="tree -C"
 
+alias z="zeus "
 alias be="bundle exec "
 alias fr="bundle exec foreman run -e app_env"
 alias ":q"="exit"
 
-alias -g sr=" script/rails "
 alias imac_sleep="ssh imac 'pmset sleepnow'"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo 'Public key copied to clipboard.'"
