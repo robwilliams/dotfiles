@@ -90,6 +90,7 @@ Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular'
+Bundle 'vim-ruby/vim-ruby'
 
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = 0
