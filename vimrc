@@ -136,7 +136,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'rodjek/vim-puppet'
 
 Bundle 'wikitopian/hardmode'
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 let LOCALVIMRC = expand("~/.vimrc.local")
