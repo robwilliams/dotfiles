@@ -1,8 +1,7 @@
 set nocompatible                  " Must come first because it changes other options.
 filetype off
 
-syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
+
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
@@ -10,10 +9,16 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " let Vundle manage Vundle
 " required! 
+
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'elixir-lang/vim-elixir'
+
+syntax enable                     " Turn on syntax highlighting.
+filetype plugin indent on         " Turn on file type detection.
+
 Bundle 'SirVer/ultisnips'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'elixir-lang/vim-elixir'
 Bundle 'ervandew/supertab'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
