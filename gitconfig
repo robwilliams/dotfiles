@@ -29,3 +29,5 @@
 	statusHints = false
 [push]
 	default = matching
+[help]
+	autocorrect = 5
