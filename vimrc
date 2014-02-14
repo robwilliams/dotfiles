@@ -85,6 +85,12 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "Dispatch zeus rspec {spec}"
 
+" No arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 let g:ctrlp_working_path_mode = 0
 
 " The Silver Searcher
