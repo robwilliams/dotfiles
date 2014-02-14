@@ -1,7 +1,7 @@
 set nocompatible                  " Must come first because it changes other options.
 filetype off
 
-
+let mapleader = " "
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
