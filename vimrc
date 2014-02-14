@@ -5,40 +5,9 @@ filetype off
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle
-" required! 
-
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'elixir-lang/vim-elixir'
-
-syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
-
-Bundle 'SirVer/ultisnips'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'ervandew/supertab'
-Bundle 'gmarik/vundle'
-Bundle 'godlygeek/tabular'
-Bundle 'kana/vim-textobj-user'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'rking/ag.vim'
-Bundle 'rodjek/vim-puppet'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-ruby/vim-ruby'
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
 set t_Co=256                      " 256 colors.
 set mouse=a                       " Enable mouse support.
