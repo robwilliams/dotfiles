@@ -21,7 +21,6 @@ path=(
   /usr/local/share/npm/bin
   /usr/local/sbin
   /usr/local/bin
-  /usr/local/bin/bullshit
   "$HOME/bin"
   "$path[@]"
 )
