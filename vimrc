@@ -62,7 +62,8 @@ set directory=~/.vim/tmp,.
 " Intelligent search settings
 set colorcolumn=80
 
-colorscheme railscasts-256
+let g:zenburn_high_Contrast=1
+colorscheme zenburn
 
 nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
 map <leader>w :w<cr>
