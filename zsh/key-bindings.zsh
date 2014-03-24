@@ -28,3 +28,8 @@
  bindkey "^[[3~" delete-char
  bindkey "^[3;5~" delete-char
  bindkey "\e[3~" delete-char
+
+ bindkey "[D" backward-word
+ bindkey "[C" forward-word
+ bindkey "^[a" beginning-of-line
+ bindkey "^[e" end-of-line
