@@ -7,6 +7,9 @@ setopt auto_name_dirs
 setopt auto_cd # change dir just by typing path (no cd)
 setopt cdablevarS # allows you to create project aliases i.e. frequent_project=~/projects/frequent/project.
 
+# Allow [ or ] wherever
+unsetopt nomatch
+
 # Show contents of directory after cd-ing into it
 chpwd() {
   ll
