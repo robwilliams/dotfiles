@@ -15,6 +15,7 @@ set mouse=a                       " Enable mouse support.
 set autoindent                    " Indentation and
 set smartindent                   " Smart indentation
 
+set iskeyword +=-                 " Treat '-' as part of word (for tab completion, etc)
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 
