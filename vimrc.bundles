@@ -9,6 +9,7 @@ Bundle 'elixir-lang/vim-elixir'
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'SirVer/ultisnips'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'ecomba/vim-ruby-refactoring'
