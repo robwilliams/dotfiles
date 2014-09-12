@@ -1,1 +1,11 @@
+/log/
+/logs/
+/images/
+/tmp/
+*.tags*
+*.gemtags*
+*.tmp*
+*.old
+*.xml
+*.pdf
 *.log
