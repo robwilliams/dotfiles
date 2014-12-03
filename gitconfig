@@ -16,6 +16,7 @@
 	sync = !legit sync \"$@\"
 	publish = !legit publish \"$@\"
 	graft = !legit graft \"$@\"
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
 [core]
   excludesfile = ~/.gitignore_global
   autocrlf     = input
