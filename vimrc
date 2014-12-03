@@ -92,9 +92,6 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = "Dispatch zeus rspec {spec}"
-
-nmap <Leader>c :Dispatch zeus cucumber % --require=features --format=progress<CR>
 
 " No arrow keys
 noremap <Up> <NOP>
