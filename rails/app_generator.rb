@@ -1,19 +1,6 @@
 gem 'foreman', require: false, group: :development
-gem 'rspec-rails', group: [:development, :test]
-
+gem 'dotenv-rails', require: false, group: [:development, :test]
 run 'bundle:install'
-generate 'rspec:install'
-
-application do
-  %Q{
-    config.generators do |g|
-      g.test_framework  :rspec, fixture: false
-      g.view_specs      false
-      g.helper_specs    false
-      g.fixture_replacement false
-    end
-  }
-end
 
 remove_dir 'doc'
 remove_file 'README.rdoc'
