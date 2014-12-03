@@ -70,6 +70,12 @@ nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
 map <leader>w :w<cr>
 map <leader>q :q<cr>
 
+" Strip trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Show trailing whitepace and spaces before a tab:
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
