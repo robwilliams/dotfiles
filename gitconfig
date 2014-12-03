@@ -29,6 +29,6 @@
 [advice]
 	statusHints = false
 [push]
-	default = matching
+	default = current
 [help]
 	autocorrect = 5
