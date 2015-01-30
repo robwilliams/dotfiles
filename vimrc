@@ -95,6 +95,8 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+au BufRead,BufNewFile *.less setfiletype less
+
 let g:ctrlp_working_path_mode = 0
 
 " The Silver Searcher
