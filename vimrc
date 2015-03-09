@@ -64,7 +64,7 @@ set directory=~/.vim/tmp,.
 set colorcolumn=80
 
 set background=dark
-colorscheme solarized
+colorscheme base16-default
 
 nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
 map <leader>w :w<cr>
