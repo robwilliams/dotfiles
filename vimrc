@@ -84,6 +84,7 @@ nmap <leader>ve :Vexplore<cr>
 nmap <leader>se :Sexplore<cr>
 
 " Rspec Mappings
+let g:rspec_command = "Dispatch bin/rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
