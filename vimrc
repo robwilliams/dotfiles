@@ -55,7 +55,6 @@ set splitright
 
 set ttymouse=xterm2               " Allows mouse support to work in a tmux session
 set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
-set clipboard=unnamed
 
 set backupdir=~/.vim/tmp,.
 set directory=~/.vim/tmp,.
