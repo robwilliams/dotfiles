@@ -55,7 +55,6 @@ set splitright
 
 set ttymouse=xterm2               " Allows mouse support to work in a tmux session
 set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
-set clipboard=unnamed
 
 set backupdir=~/.vim/tmp,.
 set directory=~/.vim/tmp,.
@@ -103,7 +102,7 @@ let g:ctrlp_working_path_mode = 0
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --follow\ --nogroup\ --nocolor
+  set grepprg=ag\ --follow\ -l\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s --follow -l --nocolor -g ""'
