@@ -72,6 +72,8 @@ map <leader>q :q<cr>
 nnoremap <leader><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <leader><Space> zf
 
+set tags=./tags;
+
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>tn :tabnext<cr>
