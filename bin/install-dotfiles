@@ -7,3 +7,5 @@ do
   rm ~/.$file;
   ln -sf ~/dotfiles/$file ~/.$file;
 done
+
+ln -sf /Users/Rob/Dropbox/Apps/tmuxinator ~/.tmuxinator
