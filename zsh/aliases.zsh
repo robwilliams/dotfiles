@@ -17,7 +17,10 @@ alias tree="tree -C"
 
 alias z="zeus "
 alias be="bundle exec "
-alias fr="bundle exec foreman run -e app_env"
+alias frt="foreman run -e .env,.env.test "
+alias frd="foreman run -e .env,.env.development "
+alias fr=frd
+
 alias ":q"="exit"
 
 alias imac_sleep="ssh imac 'pmset sleepnow'"
