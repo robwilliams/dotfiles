@@ -15,7 +15,6 @@ alias ll="ls -alh"
 alias la="ll"
 alias tree="tree -C"
 
-alias z="zeus "
 alias be="bundle exec "
 alias frt="foreman run -e .env,.env.test "
 alias frd="foreman run -e .env,.env.development "
