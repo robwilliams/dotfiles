@@ -9,6 +9,7 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
+syntax on
 set t_Co=256                      " 256 colors.
 set mouse=a                       " Enable mouse support.
 
