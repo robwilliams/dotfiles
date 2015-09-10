@@ -103,7 +103,7 @@ noremap <Right> <NOP>
 
 au BufRead,BufNewFile *.less setfiletype less
 
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'r'
 
 " The Silver Searcher
 if executable('ag')
