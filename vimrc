@@ -75,6 +75,8 @@ vnoremap <leader><Space> zf
 
 set tags=./tags;
 
+command -nargs=+ -complete=file -bar Copy saveas %:p:h/<args> " Like :saveas but saves to the current directory.
+
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>tn :tabnext<cr>
