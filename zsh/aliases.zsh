@@ -16,13 +16,6 @@ alias la="ll"
 alias tree="tree -C"
 
 alias be="bundle exec "
-alias frt="foreman run -e .env,.env.test "
-alias frd="foreman run -e .env,.env.development "
-alias fr=frd
-
-alias fst="foreman start -e .env,.env.test "
-alias fsd="foreman start -e .env,.env.development "
-alias fs=frd
 
 alias ":q"="exit"
 
