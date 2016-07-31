@@ -4,7 +4,6 @@ alias reload!="source ~/.zshrc && echo 'Reloaded!'" # ZSH reload!
 alias g="git status -sb"
 alias gst="echo 'Use g!' && git status -sb"
 alias gc="git commit -v"
-alias gp="git push"
 alias gap="git add -p"
 
 # Directory listing aliases
@@ -19,13 +18,10 @@ alias be="bundle exec "
 
 alias ":q"="exit"
 
-alias imac_sleep="ssh imac 'pmset sleepnow'"
-alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo 'Public key copied to clipboard.'"
 
 typeset -gU cdpath
 cdpath=(~/Projects $cdpath)
-cdpath=(~/Projects/stinkyink $cdpath)
 cdpath=(~/Projects/robwilliams $cdpath)
 cdpath=(~/Projects/play $cdpath)
 
