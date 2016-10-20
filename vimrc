@@ -74,6 +74,8 @@ vnoremap <leader><Space> zf
 
 set tags=./tags;
 
+autocmd! BufWritePost * Neomake
+
 command -nargs=+ -complete=file -bar Copy saveas %:p:h/<args> " Like :saveas but saves to the current directory.
 
 " Tab mappings.

@@ -25,6 +25,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'neomake/neomake'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
