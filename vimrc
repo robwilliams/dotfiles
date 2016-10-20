@@ -5,8 +5,8 @@ let mapleader = " "
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
+if filereadable(expand("~/.vimrc.plugins"))
+  source ~/.vimrc.plugins
 endif
 
 syntax on
