@@ -54,7 +54,6 @@ set laststatus=2                  " Show the status line all the time
 set splitbelow
 set splitright
 
-set ttymouse=xterm2               " Allows mouse support to work in a tmux session
 set pastetoggle=<F2>              " Allows you to paste from clipboard without auto-indent.
 
 set backupdir=~/.vim/tmp,.

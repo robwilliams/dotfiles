@@ -15,6 +15,7 @@ alias la="ll"
 alias tree="tree -C"
 
 alias be="bundle exec "
+alias vim="nvim"
 
 alias ":q"="exit"
 
