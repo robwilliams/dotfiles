@@ -9,3 +9,7 @@ do
 done
 
 ln -sf /Users/Rob/Dropbox/Apps/tmuxinator ~/.tmuxinator
+
+mkdir ~/.config
+    ln -s ~/.vim ~/.config/nvim
+    ln -s ~/.vimrc ~/.config/nvim/init.vim
