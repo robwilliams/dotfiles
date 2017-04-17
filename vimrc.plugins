@@ -1,9 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'elixir-lang/vim-elixir'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular' " Indenting using :Tabularize /
 Plug 'groenewege/vim-less'
@@ -22,8 +20,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
-Plug 'vimwiki/vimwiki'
 Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 
 " Add plugins to &runtimepath
 call plug#end()
+
