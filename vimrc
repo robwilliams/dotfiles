@@ -110,6 +110,12 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 highlight Pmenu ctermbg=238 gui=bold
 highlight SignColumn ctermbg=8 gui=bold
 
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+let g:rspec_command = "Dispatch rspec {spec}"
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep

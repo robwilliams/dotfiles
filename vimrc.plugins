@@ -22,6 +22,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'thoughtbot/vim-rspec'
 
 " Add plugins to &runtimepath
 call plug#end()
