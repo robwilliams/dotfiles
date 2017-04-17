@@ -100,6 +100,7 @@ noremap <Right> <NOP>
 au BufRead,BufNewFile *.less setfiletype less
 
 let g:ctrlp_working_path_mode = 'r'
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " The Silver Searcher
 if executable('ag')
