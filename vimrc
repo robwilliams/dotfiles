@@ -66,8 +66,6 @@ set background=dark
 colorscheme solarized
 
 nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
-map <leader>w :w<cr>
-map <leader>q :q<cr>
 nmap <leader><CR> a<CR><Esc> " Insert new line and pop out of insert mode
 
 nnoremap <leader><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
