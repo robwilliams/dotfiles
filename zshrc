@@ -32,5 +32,3 @@ export PATH
 typeset -U path
 
 rationalize-path path
-
-eval "$(direnv hook zsh)"
