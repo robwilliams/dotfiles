@@ -101,6 +101,14 @@ let g:ctrlp_working_path_mode = 'r'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
+"ruby
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+"improve autocomplete menu color
+highlight Pmenu ctermbg=238 gui=bold
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
