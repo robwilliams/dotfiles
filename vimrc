@@ -117,16 +117,15 @@ let g:rspec_command = "Dispatch rspec {spec}"
 
 " The Silver Searcher
 if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --follow\ -l\ --nogroup\ --nocolor
+
+  let g:ackprg = 'ag -Q --vimgrep'
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s --follow -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -Q --follow -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 endif
 
 let LOCALVIMRC = expand("~/.vimrc.local")

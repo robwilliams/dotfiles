@@ -10,7 +10,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'neomake/neomake'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'rondale-sc/vim-spacejam' " Auto removes whitespace
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-dispatch'
