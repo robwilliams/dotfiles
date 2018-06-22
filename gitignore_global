@@ -4,3 +4,6 @@
 zeus.json
 custom_plan.rb
 .overcommit.yml
+.agignore
+.floo
+.flooignore
