@@ -25,10 +25,12 @@
 [help]
 	autocorrect = 5
 [diff]
-	tool = vimdiff
+	tool = opendiff
 [merge]
 	tool = opendiff
 [difftool]
+	prompt = false
+[mergetool]
 	prompt = false
 [filter "lfs"]
 	clean = git-lfs clean %f
