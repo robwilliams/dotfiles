@@ -9,11 +9,9 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
-Plug 'neomake/neomake'
 Plug 'mileszs/ack.vim'
 Plug 'rondale-sc/vim-spacejam' " Auto removes whitespace
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -23,6 +21,9 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'MattesGroeger/vim-bookmarks'
+
+Plug 'neomake/neomake'
+Plug 'tpope/vim-dispatch'
 Plug 'thoughtbot/vim-rspec'
 
 " Add plugins to &runtimepath
