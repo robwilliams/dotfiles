@@ -85,6 +85,7 @@ map <leader>tp :tabprevious<cr>
 " NetRW Mappings
 nmap <leader>e :Explore<cr>
 nmap <leader>ve :Vexplore<cr>
+nmap <leader>te :Texplore<cr>
 nmap <leader>se :Sexplore<cr>
 
 noremap <leader>. :CtrlPTag<CR>
