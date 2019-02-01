@@ -6,7 +6,7 @@ Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular' " Indenting using :Tabularize /
 Plug 'groenewege/vim-less'
 Plug 'kchmck/vim-coffee-script'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'mileszs/ack.vim'
