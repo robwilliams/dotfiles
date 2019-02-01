@@ -101,6 +101,7 @@ au BufRead,BufNewFile *.less setfiletype less
 let g:ctrlp_working_path_mode = 'r'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_elixir_enabled_makers = []
 
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
