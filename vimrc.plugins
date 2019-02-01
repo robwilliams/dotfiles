@@ -1,15 +1,19 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'MattesGroeger/vim-bookmarks'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'elixir-editors/vim-elixir'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular' " Indenting using :Tabularize /
 Plug 'groenewege/vim-less'
 Plug 'kchmck/vim-coffee-script'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'mileszs/ack.vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 Plug 'rondale-sc/vim-spacejam' " Auto removes whitespace
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
@@ -18,9 +22,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'MattesGroeger/vim-bookmarks'
 
 Plug 'neomake/neomake'
 Plug 'tpope/vim-dispatch'
