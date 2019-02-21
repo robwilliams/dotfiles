@@ -65,6 +65,11 @@ set colorcolumn=80
 set background=dark
 colorscheme solarized
 
+" bind K to grep word under cursor
+nnoremap K :Ack "<C-R><C-W>"<CR>
+" bind K to grep selection
+vnoremap K y:Ack "<C-r>""<CR>
+
 nmap <C-N><C-N> :set invnumber<CR> " Double Tap ctrl+n to toggle line numbers.
 nmap <leader><CR> a<CR><Esc> " Insert new line and pop out of insert mode
 
