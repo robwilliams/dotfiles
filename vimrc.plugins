@@ -27,7 +27,7 @@ Plug 'pbrisbin/vim-mkdir'
 
 Plug 'neomake/neomake'
 Plug 'tpope/vim-dispatch'
-Plug 'thoughtbot/vim-rspec'
+Plug 'janko/vim-test'
 
 " Add plugins to &runtimepath
 call plug#end()

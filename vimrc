@@ -117,11 +117,13 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 highlight Pmenu ctermbg=238 gui=bold
 highlight SignColumn ctermbg=8 gui=bold
 
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-let g:rspec_command = "Dispatch rspec {spec}"
+" vim-test mappings
+map <Leader>t :TestFile<CR>
+map <Leader>s :TestNearest<CR>
+map <Leader>l :TestLast<CR>
+map <Leader>g :TestVisit<CR>
+
+let test#strategy = "dispatch"
 
 " The Silver Searcher
 if executable('ag')
