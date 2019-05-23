@@ -23,6 +23,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
+Plug 'pbrisbin/vim-mkdir'
 
 Plug 'neomake/neomake'
 Plug 'tpope/vim-dispatch'
