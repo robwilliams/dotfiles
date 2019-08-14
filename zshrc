@@ -1,5 +1,4 @@
 export ZSH=$HOME/dotfiles/zsh
-for config_file ($ZSH/**/*.zsh) source $config_file
 
 export EDITOR=vim
 
@@ -30,5 +29,7 @@ path=(
 
 export PATH
 typeset -U path
+
+for config_file ($ZSH/**/*.zsh) source $config_file
 
 rationalize-path path
