@@ -2,7 +2,6 @@ alias reload!="source ~/.zshrc && echo 'Reloaded!'" # ZSH reload!
 
 # GIT aliases
 alias g="git status -sb"
-alias gst="echo 'Use g!' && git status -sb"
 alias gc="git commit -v"
 alias gap="git add -p"
 
