@@ -38,3 +38,5 @@
 	required = true
 [fetch]
 	prune = true
+[commit]
+  template= ~/.gitmessage

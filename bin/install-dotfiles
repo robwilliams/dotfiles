@@ -1,14 +1,14 @@
 #!/bin/bash -x
 cd ~/dotfiles
 
-for file in tmux.conf zsh zshrc gitignore_global vim gvimrc vimrc gitconfig gemrc irbrc ackrc railsrc vimrc.plugins agignore
+for file in tmux.conf zsh zshrc vim gvimrc vimrc gitconfig gemrc irbrc ackrc railsrc vimrc.plugins agignore
 do
   echo "Linking $file to ~/.$file..";
   rm ~/.$file;
   ln -sf ~/dotfiles/$file ~/.$file;
 done
 
-ln -sf /Users/Rob/Dropbox/Apps/tmuxinator ~/.tmuxinator
+ln -sf ~/dotfiles/tmuxinator ~/.config/tmuxinator
 
 mkdir ~/.config
     ln -s ~/.vim ~/.config/nvim
