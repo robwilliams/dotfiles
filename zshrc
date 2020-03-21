@@ -11,6 +11,7 @@ unsetopt nomatch
 
 path=(
   ./bin
+  "$HOME/.nodenv/shims"
   "$HOME/.rbenv/shims"
   "$HOME/.rbenv/bin"
   "$HOME/dotfiles/bin"
