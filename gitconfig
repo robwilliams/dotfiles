@@ -10,7 +10,7 @@
   fr = pull --rebase
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
 [core]
-  excludesfile = ~/.gitignore_global
+  excludesfile = ~/dotfiles/gitignore_global
   autocrlf     = input
 [apply]
   whitespace = nowarn
@@ -39,4 +39,4 @@
 [fetch]
 	prune = true
 [commit]
-  template= ~/.gitmessage
+  template= ~/dotfiles/gitmessage

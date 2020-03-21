@@ -7,3 +7,4 @@ custom_plan.rb
 .agignore
 .floo
 .flooignore
+node_modules
