@@ -125,6 +125,7 @@ map <Leader>l :TestLast<CR>
 map <Leader>g :TestVisit<CR>
 
 let test#strategy = "dispatch"
+let test#ruby#use_spring_binstub = 1
 
 " The Silver Searcher
 if executable('ag')
