@@ -29,3 +29,9 @@ typeset -U path
 for config_file ($ZSH/**/*.zsh) source $config_file
 
 rationalize-path path
+
+# Show contents of directory after cd-ing into it
+chpwd() {
+  ll
+}
+
