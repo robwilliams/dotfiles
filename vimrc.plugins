@@ -1,13 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'MattesGroeger/vim-bookmarks'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'elixir-editors/vim-elixir'
-Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular' " Indenting using :Tabularize /
-Plug 'groenewege/vim-less'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
@@ -24,10 +20,10 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
 Plug 'pbrisbin/vim-mkdir'
-
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'neomake/neomake'
-Plug 'tpope/vim-dispatch'
-Plug 'janko/vim-test'
 
 " Add plugins to &runtimepath
 call plug#end()

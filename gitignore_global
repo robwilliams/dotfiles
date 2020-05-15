@@ -8,3 +8,5 @@ custom_plan.rb
 .floo
 .flooignore
 node_modules
+database.mysql.yml
+database.postgresql.yml
