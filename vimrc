@@ -102,11 +102,7 @@ noremap <Right> <NOP>
 let g:ctrlp_working_path_mode = 'r'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:neomake_ruby_enabled_makers = ['rubocop']
-let g:neomake_elixir_enabled_makers = []
 call neomake#configure#automake('w') " When writing (no delay)
-
-" improve autocomplete menu color
-highlight SignColumn ctermbg=8 gui=bold
 
 " The Silver Searcher
 if executable('ag')
@@ -135,3 +131,5 @@ let LOCALVIMRC = expand("~/.vimrc.local")
 if filereadable(LOCALVIMRC)
   exe "source " . LOCALVIMRC
 endif
+
+
