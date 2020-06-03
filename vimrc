@@ -75,6 +75,10 @@ nnoremap K :Ack "<C-R><C-W>"<CR>
 " bind K to grep selection
 vnoremap K y:Ack "<C-r>""<CR>
 
+" j/k will move virtual lines (lines that wrap)
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
 nmap <leader><CR> a<CR><Esc> " Insert new line and pop out of insert mode
 
 nnoremap <leader><leader> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -104,6 +108,8 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:neomake_ruby_enabled_makers = ['rubocop']
 call neomake#configure#automake('w') " When writing (no delay)
 
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
 " The Silver Searcher
 if executable('ag')
 
@@ -117,6 +123,16 @@ if executable('ag')
 
 endif
 
+" coc config
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ ]
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -125,6 +141,31 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <F1> <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 let LOCALVIMRC = expand("~/.vimrc.local")
 
