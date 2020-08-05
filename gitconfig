@@ -41,3 +41,5 @@
 	prune = true
 [commit]
   template= ~/dotfiles/gitmessage
+[pull]
+	rebase = true
