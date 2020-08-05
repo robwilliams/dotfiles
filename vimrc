@@ -106,7 +106,6 @@ noremap <Right> <NOP>
 let g:ctrlp_working_path_mode = 'r'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:neomake_ruby_enabled_makers = ['rubocop']
-call neomake#configure#automake('w') " When writing (no delay)
 
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
@@ -172,5 +171,3 @@ let LOCALVIMRC = expand("~/.vimrc.local")
 if filereadable(LOCALVIMRC)
   exe "source " . LOCALVIMRC
 endif
-
-
