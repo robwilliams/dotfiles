@@ -103,8 +103,6 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-let g:ctrlp_working_path_mode = 'r'
-
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
 " The Silver Searcher
@@ -130,27 +128,8 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ ]
 
-" Remap for rename current word
-nmap <F1> <Plug>(coc-rename)
-
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
 let LOCALVIMRC = expand("~/.vimrc.local")
 
 if filereadable(LOCALVIMRC)

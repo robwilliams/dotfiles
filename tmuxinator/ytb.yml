@@ -40,7 +40,7 @@ root: ~/Projects/YourTradebase/web-app
 # attach: false
 
 windows:
-  - editor: vim
+  - editor: vim .
   - web: heroku local -f Procfile_development web=1
   - worker: heroku local -f Procfile_development worker=1
   - webpack: heroku local -f Procfile_development webpack=1
