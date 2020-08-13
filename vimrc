@@ -126,6 +126,7 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-json',
+  \ 'coc-solargraph',
   \ ]
 
 " use <tab> for trigger completion and navigate to the next complete item
