@@ -3,5 +3,10 @@
   "javascript.suggestionActions.enabled": false,
   "javascript.validate.enable": false,
   "tsserver.enableJavascript": false,
-  "codeLens.enable": true
+  "codeLens.enable": true,
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true,
+  "solargraph.diagnostics": true,
+  "coc.preferences.formatOnSaveFiletypes": ["ruby"]
 }
