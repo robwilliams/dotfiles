@@ -5,6 +5,12 @@ alias g="git status -sb"
 alias gst="git status -sb"
 alias gc="git commit -v"
 alias gap="git add -p"
+wip () {
+  local msg
+  msg="WIP: $*"
+  git commit -m $msg
+} 
+alias wap="git add -p && wip"
 
 # Directory listing aliases
 alias sl="ls"
