@@ -1,7 +1,7 @@
-# /Users/rob/.config/tmuxinator/ytb.yml
+# /Users/rob/.config/tmuxinator/mobile-app.yml
 
-name: ytb
-root: ~/Projects/YourTradebase/web-app
+name: mobile-app
+root: ~/Projects/YourTradebase/mobile-app
 
 # Optional tmux socket
 # socket_name: foo
@@ -41,8 +41,4 @@ root: ~/Projects/YourTradebase/web-app
 
 windows:
   - editor: vim .
-  - web: heroku local -f Procfile_development web=1
-  - worker: heroku local -f Procfile_development worker=1
-  - webpack: heroku local -f Procfile_development webpack=1
-  - postgres: heroku local -f Procfile_development postgres=1
-  - redis: heroku local -f Procfile_development redis=1
+  - expo: yarn run expo start
