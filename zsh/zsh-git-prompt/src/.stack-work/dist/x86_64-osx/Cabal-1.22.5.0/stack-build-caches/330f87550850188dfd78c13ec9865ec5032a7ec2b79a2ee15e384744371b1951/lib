@@ -1,0 +1,16 @@
+/Users/rob/dotfiles/zsh/zsh-git-prompt/src/git-prompt.cabal:
+  hash: bad8f86c2cbb956bf8306750b5cc19a8c94a06392524e8b5574eea6836427d26
+  size: 1855
+  modtime: 1603833496
+/Users/rob/dotfiles/zsh/zsh-git-prompt/src/src/BranchParse.hs:
+  hash: 5ce71f892c6ee7404fc0b5f31a6321ec8e1383aa9ff5c3a8f60e38c427d97dd4
+  size: 3939
+  modtime: 1603833496
+/Users/rob/dotfiles/zsh/zsh-git-prompt/src/src/Utils.hs:
+  hash: d7d986167c16987dba3d894ffa7cdf87258efa95a70cf69f84240fdb47265a22
+  size: 2171
+  modtime: 1603833496
+/Users/rob/dotfiles/zsh/zsh-git-prompt/src/src/StatusParse.hs:
+  hash: c43fa9545e786522f5fa0eb1f29ba64ef935e654c365dc7d4fd9a22c7393398c
+  size: 1527
+  modtime: 1603833496
