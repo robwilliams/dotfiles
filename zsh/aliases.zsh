@@ -5,6 +5,8 @@ alias g="git status -sb"
 alias gst="git status -sb"
 alias gc="git commit -v"
 alias gcd="git checkout develop && git pull"
+alias grd="gcd && git checkout - && git rebase develop"
+alias grc="git rebase --continue"
 alias gcm="git checkout main && git pull"
 alias gap="git add -p"
 wip () {
