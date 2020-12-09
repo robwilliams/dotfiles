@@ -10,3 +10,6 @@ custom_plan.rb
 node_modules
 database.mysql.yml
 database.postgresql.yml
+.yarn
+.yarnrc
+.nova
