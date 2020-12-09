@@ -66,9 +66,7 @@ set directory=~/.vim/tmp,.
 
 set colorcolumn=80
 
-set background=dark
-
-autocmd vimenter * colorscheme gruvbox
+colorscheme nord
 
 " bind K to grep word under cursor
 nnoremap K :Ack "<C-R><C-W>"<CR>
