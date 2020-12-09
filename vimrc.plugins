@@ -28,4 +28,3 @@ Plug 'arcticicestudio/nord-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
-
