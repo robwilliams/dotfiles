@@ -67,6 +67,7 @@ set directory=~/.vim/tmp,.
 set colorcolumn=80
 
 colorscheme nord
+highlight ColorColumn ctermbg=0
 
 " bind K to grep word under cursor
 nnoremap K :Ack "<C-R><C-W>"<CR>
