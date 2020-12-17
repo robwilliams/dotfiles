@@ -32,6 +32,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
+Plug 'vim-airline/vim-airline'
 
 " Add plugins to &runtimepath
 call plug#end()
