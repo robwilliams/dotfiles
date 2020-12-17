@@ -5,7 +5,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular' " Indenting using :Tabularize /
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
-Plug 'mileszs/ack.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'rondale-sc/vim-spacejam' " Auto removes whitespace

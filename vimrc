@@ -126,14 +126,6 @@ nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)
 
-" === Ack ===
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
-" bind K to grep word under cursor
-nnoremap K :Ack! "<C-R><C-W>"<CR>
-" bind K to grep selection
-vnoremap K y:Ack! "<C-r>""<CR>
-
 " === fzf ===
 nnoremap <C-p> :Files<Cr>
 
@@ -148,7 +140,6 @@ nnoremap <C-g> :Rg<Cr>
 if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ -S
   set grepformat=%f:%l:%c:%m,%f:%l:%m
-  let g:ackprg = 'rg --vimgrep --no-heading'
 endif
 
 let LOCALVIMRC = expand("~/.vimrc.local")
