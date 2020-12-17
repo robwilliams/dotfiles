@@ -27,6 +27,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'raghur/fruzzy', {'do': { -> fruzzy#install()}}
 Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-hijack.vim'
+Plug 'antoinemadec/FixCursorHold.nvim'
 
 " Add plugins to &runtimepath
 call plug#end()

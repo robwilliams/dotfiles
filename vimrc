@@ -80,7 +80,7 @@ map <leader>tt :tabnew<cr>
 map <leader>tn :tabnext<cr>
 map <leader>tp :tabprevious<cr>
 
-nmap <leader>e :Fern . -drawer<cr>
+nmap <leader>e :Fern . -drawer -toggle -keep<cr>
 
 " No arrow keys
 noremap <Up> <NOP>
