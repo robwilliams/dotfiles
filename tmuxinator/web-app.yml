@@ -46,3 +46,4 @@ windows:
   - webpack: heroku local -f Procfile_development webpack=1
   - postgres: heroku local -f Procfile_development postgres=1
   - redis: heroku local -f Procfile_development redis=1
+  - spring: spring server
