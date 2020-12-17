@@ -143,21 +143,6 @@ if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading'
 endif
 
-" === Fruzzy ===
-let g:fruzzy#usenative = 1
-
-" When there's no input, fruzzy can sort entries based on how similar they are to the current buffer
-" For ex: if you're on /path/to/somefile.h, then on opening denite, /path/to/somefile.cpp
-" would appear on the top of the list.
-" Useful if you're bouncing a lot between similar files.
-" To turn off this behavior, set the variable below  to 0
-
-let g:fruzzy#sortonempty = 1 " default value
-
-" tell CtrlP to use this matcher
-let g:ctrlp_match_func = {'match': 'fruzzy#ctrlp#matcher'}
-let g:ctrlp_match_current_file = 1 " to include current file in matches
-
 let LOCALVIMRC = expand("~/.vimrc.local")
 
 if filereadable(LOCALVIMRC)
