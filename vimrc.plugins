@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular' " Indenting using :Tabularize /
 Plug 'mattn/gist-vim'
@@ -23,7 +22,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'neomake/neomake'
 Plug 'arcticicestudio/nord-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'raghur/fruzzy', {'do': { -> fruzzy#install()}}
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 Plug 'antoinemadec/FixCursorHold.nvim'
