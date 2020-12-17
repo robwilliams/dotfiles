@@ -134,12 +134,11 @@ nnoremap K :Ack! "<C-R><C-W>"<CR>
 " bind K to grep selection
 vnoremap K y:Ack! "<C-r>""<CR>
 
+nnoremap <C-p> :Files<Cr>
 
 if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ -S
   set grepformat=%f:%l:%c:%m,%f:%l:%m
-  let g:ctrlp_user_command = 'rg %s --files --glob ""'
-  let g:ctrlp_use_caching = 0
   let g:ackprg = 'rg --vimgrep --no-heading'
 endif
 
