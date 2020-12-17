@@ -80,11 +80,7 @@ map <leader>tt :tabnew<cr>
 map <leader>tn :tabnext<cr>
 map <leader>tp :tabprevious<cr>
 
-" NetRW Mappings
-nmap <leader>e :Explore<cr>
-nmap <leader>ve :Vexplore<cr>
-nmap <leader>te :Texplore<cr>
-nmap <leader>se :Sexplore<cr>
+nmap <leader>e :Fern . -drawer<cr>
 
 " No arrow keys
 noremap <Up> <NOP>
