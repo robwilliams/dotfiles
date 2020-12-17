@@ -41,9 +41,4 @@ root: ~/Projects/YourTradebase/web-app
 
 windows:
   - editor: vim .
-  - web: heroku local -f Procfile_development web=1
-  - worker: heroku local -f Procfile_development worker=1
-  - webpack: heroku local -f Procfile_development webpack=1
-  - postgres: heroku local -f Procfile_development postgres=1
-  - redis: heroku local -f Procfile_development redis=1
-  - spring: spring server
+  - overmind: overmind start -f Procfile_development -c redis,postgres
