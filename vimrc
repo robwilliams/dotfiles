@@ -137,6 +137,11 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 nnoremap <C-g> :Rg<Cr>
 
+" bind K to grep word under cursor
+nnoremap K :Rg "<C-R><C-W>"<CR>
+" bind K to grep selection
+vnoremap K y:Rg "<C-r>""<CR>
+
 if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ -S
   set grepformat=%f:%l:%c:%m,%f:%l:%m
