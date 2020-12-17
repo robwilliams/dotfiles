@@ -69,11 +69,6 @@ set colorcolumn=80
 colorscheme nord
 highlight ColorColumn ctermbg=0
 
-" bind K to grep word under cursor
-nnoremap K :Ack "<C-R><C-W>"<CR>
-" bind K to grep selection
-vnoremap K y:Ack "<C-r>""<CR>
-
 " j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -127,11 +122,21 @@ nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)
 
+" === Ack ===
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+" bind K to grep word under cursor
+nnoremap K :Ack! "<C-R><C-W>"<CR>
+" bind K to grep selection
+vnoremap K y:Ack! "<C-r>""<CR>
+
+
 if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ -S
   set grepformat=%f:%l:%c:%m,%f:%l:%m
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_user_command = 'rg %s --files --glob ""'
   let g:ctrlp_use_caching = 0
+  let g:ackprg = 'rg --vimgrep --no-heading'
 endif
 
 " === Fruzzy ===
