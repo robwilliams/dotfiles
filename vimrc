@@ -90,7 +90,7 @@ noremap <Right> <NOP>
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
 " === Fern ===
-nmap <leader>e :Fern . -drawer -toggle -keep<cr>
+nmap <leader>e :Fern %:h<cr>
 let g:fern#renderer = "nerdfont"
 
 augroup my-glyph-palette
