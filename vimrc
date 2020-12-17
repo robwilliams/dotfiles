@@ -80,7 +80,6 @@ map <leader>tt :tabnew<cr>
 map <leader>tn :tabnext<cr>
 map <leader>tp :tabprevious<cr>
 
-nmap <leader>e :Fern . -drawer -toggle -keep<cr>
 
 " No arrow keys
 noremap <Up> <NOP>
@@ -89,6 +88,15 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
+" === Fern ===
+nmap <leader>e :Fern . -drawer -toggle -keep<cr>
+let g:fern#renderer = "nerdfont"
+
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+augroup END
 
 " === COC ===
 let g:coc_global_extensions = [
