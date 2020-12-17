@@ -78,11 +78,6 @@ vnoremap K y:Ack "<C-r>""<CR>
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-nmap <leader><CR> a<CR><Esc> " Insert new line and pop out of insert mode
-
-nnoremap <leader><leader> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <leader><leader> zf
-
 command -nargs=+ -complete=file -bar Copy saveas %:p:h/<args> " Like :saveas but saves to the current directory.
 
 " Tab mappings.
@@ -104,20 +99,7 @@ noremap <Right> <NOP>
 
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
-" The Silver Searcher
-if executable('ag')
-
-  let g:ackprg = 'ag -Q --vimgrep'
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -Q --follow -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-endif
-
-" coc config
+" === COC ===
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-eslint',
@@ -144,6 +126,28 @@ nmap <silent> <leader>dn <Plug>(coc-rename)
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)
+
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading\ -S
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+" === Fruzzy ===
+let g:fruzzy#usenative = 1
+
+" When there's no input, fruzzy can sort entries based on how similar they are to the current buffer
+" For ex: if you're on /path/to/somefile.h, then on opening denite, /path/to/somefile.cpp
+" would appear on the top of the list.
+" Useful if you're bouncing a lot between similar files.
+" To turn off this behavior, set the variable below  to 0
+
+let g:fruzzy#sortonempty = 1 " default value
+
+" tell CtrlP to use this matcher
+let g:ctrlp_match_func = {'match': 'fruzzy#ctrlp#matcher'}
+let g:ctrlp_match_current_file = 1 " to include current file in matches
 
 let LOCALVIMRC = expand("~/.vimrc.local")
 

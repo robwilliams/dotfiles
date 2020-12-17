@@ -25,6 +25,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'neomake/neomake'
 Plug 'arcticicestudio/nord-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'raghur/fruzzy', {'do': { -> fruzzy#install()}}
 
 " Add plugins to &runtimepath
 call plug#end()
