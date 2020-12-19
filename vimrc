@@ -66,7 +66,12 @@ set directory=~/.vim/tmp,.
 
 set colorcolumn=80
 
-colorscheme nord
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+colorscheme onehalfdark
 highlight ColorColumn ctermbg=0
 
 " j/k will move virtual lines (lines that wrap)
