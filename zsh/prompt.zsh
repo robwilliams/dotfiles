@@ -4,4 +4,4 @@ function ssh_prompt() {
   if [ $SSH_CONNECTION ]; then echo "%M⋮"; fi
 }
 
-eval "$(starship init zsh)"
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
