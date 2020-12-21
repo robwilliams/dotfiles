@@ -133,13 +133,6 @@ nmap <silent> <leader>dj <Plug>(coc-implementation)
 
 " === fzf ===
 nnoremap <C-p> :Files<Cr>
-
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-  \   <bang>0)
 nnoremap <C-g> :Rg<Cr>
 
 " bind K to grep word under cursor
