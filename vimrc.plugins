@@ -6,7 +6,6 @@ Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'rondale-sc/vim-spacejam' " Auto removes whitespace
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-endwise'
@@ -35,6 +34,7 @@ if has('win32') || has('win64')
 else
   Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 endif
+Plug 'dense-analysis/ale'
 
 " Add plugins to &runtimepath
 call plug#end()

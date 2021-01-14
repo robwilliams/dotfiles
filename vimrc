@@ -114,6 +114,12 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ deoplete#manual_complete()
 
+" === ale ===
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint', 'autoimport'],
+\}
+
 " === fzf ===
 nnoremap <C-p> :Files<Cr>
 nnoremap <C-g> :Rg<Cr>
