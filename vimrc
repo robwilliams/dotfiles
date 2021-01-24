@@ -125,9 +125,9 @@ nnoremap <C-p> :Files<Cr>
 nnoremap <C-g> :Rg<Cr>
 
 " bind K to grep word under cursor
-nnoremap K :Rg "<C-R><C-W>"<CR>
+nnoremap K :Rg <C-R><C-W><CR>
 " bind K to grep selection
-vnoremap K y:Rg "<C-r>""<CR>
+vnoremap K y:Rg <C-r>"<CR>
 
 if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ -S
