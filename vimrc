@@ -115,10 +115,17 @@ inoremap <silent><expr> <TAB>
       \ deoplete#manual_complete()
 
 " === ale ===
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+let g:ale_linters = {
 \   'javascript': ['eslint', 'autoimport'],
+\   'typescript': ['eslint', 'autoimport'],
+\   'ruby': ['rubocop'],
 \}
+let g:ale_fixers = {
+\   'javascript': ['eslint', 'autoimport'],
+\   'typescript': ['eslint', 'autoimport'],
+\   'ruby': ['rubocop'],
+\}
+let g:ale_fix_on_save = 1
 
 " === fzf ===
 nnoremap <C-p> :Files<Cr>
