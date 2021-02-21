@@ -35,6 +35,8 @@ else
   Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 endif
 Plug 'dense-analysis/ale'
+Plug 'stefandtw/quickfix-reflector.vim'
+Plug 'mileszs/ack.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
