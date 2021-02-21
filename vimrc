@@ -130,7 +130,6 @@ let g:ale_fix_on_save = 1
 " === fzf ===
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <C-p> :FzfFiles<Cr>
-nnoremap <C-g> :FzfRg<Cr>
 
 " === ack ===
 
@@ -152,6 +151,7 @@ cnoreabbrev Ack Ack!
 
 " Maps <leader>/ so we're ready to type the search keyword
 nnoremap <Leader>/ :Ack!<Space>
+nnoremap <C-g> :Ack!<Space>
 
 " Navigate quickfix list with ease
 nnoremap <silent> [q :cprevious<CR>
