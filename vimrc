@@ -166,7 +166,6 @@ endif
 let test#strategy = "vtr"
 nmap <silent> <Leader>t :TestNearest<CR>
 nmap <silent> <Leader>f :TestFile<CR>
-nmap <silent> <Leader>s :TestSuite<CR>
 
 let LOCALVIMRC = expand("~/.vimrc.local")
 
