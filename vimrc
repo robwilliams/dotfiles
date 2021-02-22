@@ -162,6 +162,12 @@ if executable('rg')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+" === vim-test ===
+let test#strategy = "vtr"
+nmap <silent> <Leader>t :TestNearest<CR>
+nmap <silent> <Leader>f :TestFile<CR>
+nmap <silent> <Leader>s :TestSuite<CR>
+
 let LOCALVIMRC = expand("~/.vimrc.local")
 
 if filereadable(LOCALVIMRC)

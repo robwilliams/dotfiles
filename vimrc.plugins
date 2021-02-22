@@ -37,6 +37,8 @@ endif
 Plug 'dense-analysis/ale'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'mileszs/ack.vim'
+Plug 'vim-test/vim-test'
+Plug 'christoomey/vim-tmux-runner'
 
 " Add plugins to &runtimepath
 call plug#end()
