@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export ZSH=$HOME/dotfiles/zsh
 
 export EDITOR=vim
@@ -19,6 +26,8 @@ path=(
   /usr/local/share/npm/bin
   /usr/local/sbin
   /usr/local/bin
+  /opt/homebrew/sbin
+  /opt/homebrew/bin
   "$HOME/bin"
   "$path[@]"
 )
@@ -39,3 +48,4 @@ chpwd() {
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"

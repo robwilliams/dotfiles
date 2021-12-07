@@ -1,1 +1,1 @@
-eval "$(/usr/local/bin/direnv hook zsh)"
+eval "$(direnv hook zsh)"
