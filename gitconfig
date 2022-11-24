@@ -27,11 +27,12 @@
 [help]
 	autocorrect = 5
 [diff]
-	tool = opendiff
+	tool = Kaleidoscope
 [merge]
-	tool = opendiff
+	tool = Kaleidoscope
 [difftool]
 	prompt = false
+	trustExitCode = true
 [mergetool]
 	prompt = false
 [filter "lfs"]
@@ -56,3 +57,8 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
