@@ -14,3 +14,4 @@ database.postgresql.yml
 .yarnrc
 .nova
 .ignore
+.trunk

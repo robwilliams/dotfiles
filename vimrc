@@ -78,8 +78,6 @@ highlight ColorColumn ctermbg=0
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-command -nargs=+ -complete=file -bar Copy saveas %:p:h/<args> " Like :saveas but saves to the current directory.
-
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>tn :tabnext<cr>
@@ -95,7 +93,7 @@ noremap <Right> <NOP>
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
 " === Fern ===
-nmap <leader>e :Fern %:h<cr>
+nnoremap <silent><Leader>e :Fern %:h<cr>
 let g:fern#renderer = "nerdfont"
 
 augroup my-glyph-palette
@@ -126,12 +124,45 @@ let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \}
 let g:ale_fix_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
 
 " === fzf ===
-let g:fzf_command_prefix = 'Fzf'
-nnoremap <C-p> :FzfFiles<Cr>
+nnoremap <C-p> :Files<Cr>
+nnoremap <silent> <Leader><Leader> :Files<CR>
+" Sibling files
+nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <Leader>m :FZFMru<CR> " Most recently used files
+nnoremap <silent> <Leader>fm :Maps<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>l :Lines<CR>
+nnoremap <silent> <Leader>g :GFiles?
+nnoremap <silent> <Leader>] :Tags<CR>
+nnoremap <silent> <Leader>B :BTags<CR>
+let g:fzf_commits_log_options = '--graph --color=always
+  \ --format="%C(yellow)%h%C(red)%d%C(reset)
+  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
 
-" === ack ===
+nnoremap <silent> <Leader>C :Commits<CR>
+nnoremap <silent> <Leader>c :BCommits<CR>
+
+
+
+if filereadable('config/routes.rb')
+  " This looks like a Rails app, add Rails specific mappings here.
+  nnoremap <silent> <Leader>j :Files app/javascript<CR>
+  nnoremap <silent> <Leader>rc :Files app/controllers<CR>
+  nnoremap <silent> <Leader>rv :Files app/views<CR>
+  nnoremap <silent> <Leader>rm :Files app/models<CR>
+  nnoremap <silent> <Leader>rs :Files app/services<CR>
+  nnoremap <silent> <Leader>rj :Files app/jobs<CR>
+  nnoremap <silent> <Leader>rp :Files app/policies<CR>
+elseif filereadable('src/index.js')
+  " This looks like a Javascript app, add Javascript specific mappings here.
+endif
+
+" ack.vim --- {{{
 
 " Use ripgrep for searching ⚡️
 " Options include:
@@ -141,7 +172,7 @@ nnoremap <C-p> :FzfFiles<Cr>
 let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
 
 " Auto close the Quickfix list after pressing '<enter>' on a list item
-let g:ack_autoclose = 0
+let g:ack_autoclose = 1
 
 " Any empty ack search will search for the work the cursor is on
 let g:ack_use_cword_for_empty_search = 1
@@ -150,8 +181,8 @@ let g:ack_use_cword_for_empty_search = 1
 cnoreabbrev Ack Ack!
 
 " Maps <leader>/ so we're ready to type the search keyword
-nnoremap <Leader>/ :Ack!<Space>
-nnoremap <C-g> :Ack!<Space>
+nnoremap <Leader><Space> :Ack!<Space>
+vnoremap <Leader><Space> y:Ack! '<C-R>=substitute(escape(@", '\/.*$^~[]'), '\n', ' ', 'g')<CR>'
 
 " Navigate quickfix list with ease
 nnoremap <silent> [q :cprevious<CR>

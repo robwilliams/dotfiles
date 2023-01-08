@@ -28,12 +28,20 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
 Plug 'stefandtw/quickfix-reflector.vim'
-Plug 'mileszs/ack.vim'
 Plug 'vim-test/vim-test'
 Plug 'christoomey/vim-tmux-runner'
+Plug 'github/copilot.vim', { 'branch': 'release' }
+Plug 'mileszs/ack.vim'
+Plug 'ahmedkhalf/project.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-tree/nvim-web-devicons'
 
 " Add plugins to &runtimepath
 call plug#end()
