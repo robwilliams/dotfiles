@@ -26,6 +26,8 @@ alias tree="tree -C"
 
 alias be="bundle exec "
 alias vim="nvim"
+alias v="nvim"
+alias vn="XDG_CONFIG_HOME=~/dotfiles/config-vimneo nvim"
 
 alias ":q"="exit"
 
