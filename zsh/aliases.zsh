@@ -36,6 +36,7 @@ alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo 'Public key copied to clipbo
 typeset -gU cdpath
 cdpath=(~/Projects $cdpath)
 cdpath=(~/Projects/robwilliams $cdpath)
+cdpath=(~/Projects/YourTradebase $cdpath)
 cdpath=(~/Projects/play $cdpath)
 
 # CHMOD helpers (work just like chmod but only on files or directories)
