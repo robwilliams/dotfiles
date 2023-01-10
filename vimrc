@@ -133,7 +133,7 @@ nnoremap <C-p> :Files<Cr>
 nnoremap <silent> <Leader><Leader> :Files<CR>
 " Sibling files
 nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
-nnoremap <silent> <Leader>m :FZFMru<CR> " Most recently used files
+nnoremap <silent> <Leader>m :FZFMru<CR>
 nnoremap <silent> <Leader>fm :Maps<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>l :Lines<CR>
@@ -148,6 +148,7 @@ nnoremap <silent> <Leader>C :Commits<CR>
 nnoremap <silent> <Leader>c :BCommits<CR>
 
 
+nnoremap <silent> <Leader> :w<CR>
 
 if filereadable('config/routes.rb')
   " This looks like a Rails app, add Rails specific mappings here.
@@ -171,8 +172,8 @@ endif
 " --smart-case -> Search case insensitive if all lowercase pattern, Search case sensitively otherwise
 let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
 
-" Auto close the Quickfix list after pressing '<enter>' on a list item
-let g:ack_autoclose = 1
+" Do not auto close the Quickfix list after pressing '<enter>' on a list item
+let g:ack_autoclose = 0
 
 " Any empty ack search will search for the work the cursor is on
 let g:ack_use_cword_for_empty_search = 1
@@ -180,8 +181,8 @@ let g:ack_use_cword_for_empty_search = 1
 " Don't jump to first match
 cnoreabbrev Ack Ack!
 
-" Maps <leader>/ so we're ready to type the search keyword
 nnoremap <Leader><Space> :Ack!<Space>
+nnoremap <C-g> :Ack!<Space>
 vnoremap <Leader><Space> y:Ack! '<C-R>=substitute(escape(@", '\/.*$^~[]'), '\n', ' ', 'g')<CR>'
 
 " Navigate quickfix list with ease

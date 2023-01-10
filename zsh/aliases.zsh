@@ -9,6 +9,7 @@ alias grd="gcd && git checkout - && git rebase develop"
 alias grc="git rebase --continue"
 alias gcm="git checkout main && git pull"
 alias gap="git add -p"
+alias gc-="git checkout -"
 wip () {
   local msg
   msg="WIP: $*"
