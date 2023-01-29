@@ -1,0 +1,33 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" -}}
+brew bundle --no-lock --file=/dev/stdin <<EOF
+brew "git"
+brew "heroku"
+brew "fish"
+brew "ripgrep"
+
+cask "1password-cli"
+EOF
+{{ end -}}
+
+{{ if eq .chezmoi.os "linux" -}}
+sudo apt-add-repository ppa:fish-shell/release-3 -y
+sudo apt-add-repository ppa:git-core/ppa -y
+sudo apt update
+sudo apt install -y \
+  git \
+  fish \
+  ripgrep \
+  build-essential
+{{ end -}}
+
+curl -sS https://starship.rs/install.sh | sh
+
+if [ ! -d "~/.asdf" ]; then
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.1
+fi
+~/.asdf/bin/asdf plugin add neovim
+~/.asdf/bin/asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+~/.asdf/bin/asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+
