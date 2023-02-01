@@ -102,7 +102,7 @@ o.nobackup = true
 o.nowritebackup = true
 
 -- Disable swap files.
-o.noswapfile = true
+o.swapfile = false
 
 -- Global tab width.
 o.tabstop = 2
