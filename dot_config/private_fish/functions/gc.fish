@@ -1,4 +1,4 @@
-function gc --wraps='git commit' --description 'alias gc git commit'
-  git commit $argv
+function gc --wraps='git commit --verbose' --description 'alias gc git commit --verbose'
+  git commit --verbose $argv
         
 end

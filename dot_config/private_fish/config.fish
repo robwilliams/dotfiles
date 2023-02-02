@@ -5,3 +5,5 @@ end
 set -gx EDITOR vim
 
 set -g fish_greeting
+
+fish_add_path $HOME/.local/bin
