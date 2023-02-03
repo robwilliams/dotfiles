@@ -10,7 +10,6 @@ require("lazy").setup({
       vim.cmd([[colorscheme onedark]])
     end,
   },
-
   -- See `:help lualine.txt`
   {
     "nvim-lualine/lualine.nvim",
@@ -479,4 +478,101 @@ require("lazy").setup({
       'nvim-treesitter/nvim-treesitter-refactor',
     },
   },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      local null_ls = require('null-ls');
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.code_actions.gitrebase,
+          null_ls.builtins.code_actions.gitsigns,
+          null_ls.builtins.completion.spell,
+          null_ls.builtins.diagnostics.ansiblelint,
+          null_ls.builtins.diagnostics.dotenv_linter,
+          null_ls.builtins.diagnostics.erb_lint,
+          null_ls.builtins.diagnostics.eslint_d,
+          null_ls.builtins.diagnostics.fish,
+          null_ls.builtins.diagnostics.gitlint,
+          null_ls.builtins.diagnostics.hadolint,
+          null_ls.builtins.diagnostics.jshint,
+          null_ls.builtins.diagnostics.jsonlint,
+          null_ls.builtins.diagnostics.luacheck,
+          null_ls.builtins.diagnostics.markdownlint,
+          null_ls.builtins.diagnostics.shellcheck,
+          null_ls.builtins.diagnostics.standardrb,
+          null_ls.builtins.diagnostics.stylelint,
+          null_ls.builtins.diagnostics.tidy,
+          null_ls.builtins.diagnostics.trail_space,
+          null_ls.builtins.diagnostics.tsc,
+          null_ls.builtins.diagnostics.vint,
+          null_ls.builtins.diagnostics.write_good,
+          null_ls.builtins.diagnostics.yamllint,
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.beautysh,
+          null_ls.builtins.formatting.cbfmt,
+          null_ls.builtins.formatting.erb_lint,
+          null_ls.builtins.formatting.eslint_d,
+          null_ls.builtins.formatting.fish_indent,
+          null_ls.builtins.formatting.fixjson,
+          null_ls.builtins.formatting.mdformat,
+          null_ls.builtins.formatting.nginx_beautifier,
+          null_ls.builtins.formatting.prettierd,
+          null_ls.builtins.formatting.pg_format,
+          null_ls.builtins.formatting.rubocop,
+          null_ls.builtins.formatting.shellharden,
+          null_ls.builtins.formatting.shfmt,
+          null_ls.builtins.formatting.standardrb,
+          null_ls.builtins.formatting.stylelint,
+          null_ls.builtins.formatting.sqlfluff.with({
+            extra_args = { "--dialect", "postgres" }, -- change to your dialect
+          }),
+          null_ls.builtins.formatting.terraform_fmt,
+          null_ls.builtins.formatting.tidy,
+          null_ls.builtins.formatting.trim_whitespace,
+          null_ls.builtins.formatting.yamlfmt,
+          null_ls.builtins.hover.printenv,
+        },
+      })
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    }
+  },
+  { 
+    "folke/trouble.nvim", 
+    config = function()
+      require("trouble").setup {
+        auto_open = false,
+        auto_close = true,
+        auto_preview = false,
+        auto_fold = false,
+        signs = {
+          error = "",
+          warning = "",
+          hint = "",
+          information = "",
+          other = "﫠",
+        },
+        use_diagnostic_signs = true,
+      }
+      vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+        {silent = true, noremap = true}
+      )
+      vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+        {silent = true, noremap = true}
+      )
+      vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+        {silent = true, noremap = true}
+      )
+      vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+        {silent = true, noremap = true}
+      )
+      vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+        {silent = true, noremap = true}
+      )
+      vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+        {silent = true, noremap = true}
+      )
+    end,
+  }
 })
