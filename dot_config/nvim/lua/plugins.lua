@@ -305,6 +305,7 @@ require("lazy").setup({
       'hrsh7th/cmp-nvim-lsp',
     },
   },
+  -- Shows what nvim-lsp is doing
   {
     "j-hui/fidget.nvim",
     config = function()
@@ -318,12 +319,6 @@ require("lazy").setup({
     config = function()
       local cmp = require 'cmp'
       local lspkind = require 'lspkind'
-
-      local has_words_before = function()
-        if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
-      end
 
       cmp.setup {
         snippet = {
@@ -342,75 +337,24 @@ require("lazy").setup({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           },
-          ["<Tab>"] = vim.schedule_wrap(function(fallback)
-            if cmp.visible() and has_words_before() then
-              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            elseif luasnip.expand_or_jumpable() and has_words_before() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end),
-        },
-        formatters = {
-          insert_text = require("copilot_cmp.format").remove_existing
         },
         formatting = {
-          format = function(entry, vim_item)
-            vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
-            -- See where 'Text' is coming from in you completion menu
-            vim_item.menu = ({
-              nvim_lsp = "ﲳ",
-              nvim_lua = "",
-              treesitter = "",
-              path = "ﱮ",
-              buffer = "﬘",
-              zsh = "",
-              vsnip = "",
-              spell = "暈",
-              copilot = ""
-            })[entry.source.name]
-
-            return vim_item
-          end,
+          format = lspkind.cmp_format({
+            mode = 'symbol',
+            with_text = false,
+            maxwidth = 50
+          }),
         },
         sources = {
-          -- Copilot Source
-          { name = "copilot", group_index = 2 },
           -- Other Sources
-          { name = "treesitter", group_index = 2 },
-          { name = "nvim_lsp", group_index = 2 },
-          { name = "path", group_index = 2 },
-          { name = "buffers", group_index = 2 },
-          { name = "luasnip", group_index = 2 },
-        },
-        sorting = {
-          priority_weight = 2,
-          comparators = {
-            require("copilot_cmp.comparators").prioritize,
-            require("copilot_cmp.comparators").score,
-
-            -- Below is the default comparitor list and order for nvim-cmp
-            cmp.config.compare.offset,
-            -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
-            cmp.config.compare.exact,
-            cmp.config.compare.score,
-            cmp.config.compare.recently_used,
-            cmp.config.compare.locality,
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order,
-          },
+          { name = "treesitter" },
+          { name = "nvim_lsp" },
+          { name = "path" },
+          { name = "buffer" },
+          { name = "luasnip" },
+          { name = "calc" },
+          { name = "git" },
+          { name = "lua" },
         },
         window = {
           documentation = {
@@ -433,21 +377,22 @@ require("lazy").setup({
       'saadparwaiz1/cmp_luasnip',
       "zbirenbaum/copilot-cmp",
       "onsails/lspkind.nvim",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-calc",
+      "hrsh7th/cmp-git",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-path",
     },
   },
-  { 
-    "zbirenbaum/copilot.lua",
-    config = function()
-      require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
-    end
-  },
-  { 
-    "zbirenbaum/copilot-cmp",
-    config = true,
-  },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-calc" },
+  { "hrsh7th/cmp-git" },
+  { "hrsh7th/cmp-nvim-lua" },
+  { "hrsh7th/cmp-path" },
+  { "sindrets/diffview.nvim" },
+  { "preservim/nerdcommenter" },
+  { "nvim-tree/nvim-web-devicons" },
+  { "github/copilot.vim" },
   {
     'L3MON4D3/LuaSnip',
     config = function()
@@ -457,17 +402,7 @@ require("lazy").setup({
       "rafamadriz/friendly-snippets",
     }
   },
-  {
-    "onsails/lspkind.nvim",
-    config = function()
-      require('lspkind').init({
-        symbol_map = {
-          copilot = "",
-        },
-      })
-      vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
-    end,
-  },
+  { "onsails/lspkind.nvim" },
   -- Highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
