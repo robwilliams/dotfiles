@@ -114,7 +114,6 @@ require("lazy").setup({
       -- old habits, die hard
       vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { desc = 'Search Files' })
       vim.keymap.set('n', '<C-g>', require('telescope.builtin').grep_string, { desc = 'Search current Word' })
-      vim.keymap.set('n', 'G', require('telescope.builtin').grep_string, { desc = 'Find current Word' })
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -248,11 +247,6 @@ require("lazy").setup({
         nmap('<leader>wl', function()
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, '[W]orkspace [L]ist Folders')
-
-        -- Create a command `:Format` local to the LSP buffer
-        vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-          vim.lsp.buf.format()
-        end, { desc = 'Format current buffer with LSP' })
       end
 
       require("neodev").setup(); -- has to be before lspconfig
@@ -469,7 +463,7 @@ require("lazy").setup({
           null_ls.builtins.diagnostics.luacheck,
           null_ls.builtins.diagnostics.markdownlint,
           null_ls.builtins.diagnostics.shellcheck,
-          null_ls.builtins.diagnostics.standardrb,
+          --null_ls.builtins.diagnostics.standardrb,
           null_ls.builtins.diagnostics.stylelint,
           null_ls.builtins.diagnostics.tidy,
           null_ls.builtins.diagnostics.trail_space,
@@ -486,12 +480,11 @@ require("lazy").setup({
           null_ls.builtins.formatting.fixjson,
           null_ls.builtins.formatting.mdformat,
           null_ls.builtins.formatting.nginx_beautifier,
-          null_ls.builtins.formatting.prettierd,
+          --null_ls.builtins.formatting.prettierd,
           null_ls.builtins.formatting.pg_format,
           null_ls.builtins.formatting.rubocop,
           null_ls.builtins.formatting.shellharden,
           null_ls.builtins.formatting.shfmt,
-          null_ls.builtins.formatting.standardrb,
           null_ls.builtins.formatting.stylelint,
           null_ls.builtins.formatting.sqlfluff.with({
             extra_args = { "--dialect", "postgres" }, -- change to your dialect
