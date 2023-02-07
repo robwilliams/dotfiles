@@ -54,7 +54,10 @@ require("lazy").setup({
       })
     end,
   },
-  { "RRethy/vim-illuminate" },
+  {
+    "RRethy/vim-illuminate",
+    event = "InsertEnter",
+  },
   {
     "folke/which-key.nvim",
     config = function()
@@ -66,12 +69,6 @@ require("lazy").setup({
   -- See `:help telescope` and `:help telescope.setup()`
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "ahmedkhalf/project.nvim",
-      "nvim-telescope/telescope-fzf-native.nvim",
-      "rcarriga/nvim-notify",
-    },
     config = function()
       require("telescope").setup({
         defaults = {
@@ -81,6 +78,12 @@ require("lazy").setup({
               ["<C-k>"] = require("telescope.actions").move_selection_previous,
               ['<C-u>'] = false,
               ['<C-d>'] = false,
+              ["<C-q>"] = function(bufnr)
+                require("telescope.actions").smart_send_to_qflist(bufnr)
+                require("telescope.builtin").quickfix()
+              end,
+              ["<C-h>"] = "which_key",
+              ["<esc>"] = require("telescope.actions").close,
             },
           },
         },
@@ -103,14 +106,22 @@ require("lazy").setup({
         })
       end, { desc = '[/] Fuzzily search in current buffer]' })
 
-      vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+      vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
+      vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
+      vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
+      vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
+      vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
       -- old habits, die hard
       vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { desc = 'Search Files' })
+      vim.keymap.set('n', '<C-g>', require('telescope.builtin').grep_string, { desc = 'Search current Word' })
+      vim.keymap.set('n', 'G', require('telescope.builtin').grep_string, { desc = 'Find current Word' })
     end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "ahmedkhalf/project.nvim",
+      "nvim-telescope/telescope-fzf-native.nvim",
+      "rcarriga/nvim-notify",
+    },
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -139,7 +150,6 @@ require("lazy").setup({
   },
   "christoomey/vim-tmux-navigator",
   "christoomey/vim-tmux-runner",
-  -- "dense-analysis/ale",
   "godlygeek/tabular",
   {
     "mileszs/ack.vim",
@@ -151,10 +161,6 @@ require("lazy").setup({
       vim.g.ack_use_cword_for_empty_search = 1
       -- Don't jump to the first match
       vim.cmd([[ cnoreabbrev Ack Ack! ]])
-
-      vim.keymap.set("n", "<leader><leader>", ":Ack!<space>")
-      vim.keymap.set("n", "<C-g>", ":Ack!<space>")
-      vim.keymap.set("n", "<C-g>", ":Ack!<space>")
     end,
   },
   "neomake/neomake",
@@ -192,12 +198,15 @@ require("lazy").setup({
         "cssls",
         "dockerls",
         "eslint",
-        "sorbet",
+        "html",
+        "solargraph",
+        "stylelint_lsp",
+        "sumneko_lua",
+        "tailwindcss",
         "terraformls",
         "tflint",
         "tsserver",
         "yamlls",
-        "sumneko_lua"
       }
 
       local mason_lspconfig = require 'mason-lspconfig'
@@ -329,7 +338,7 @@ require("lazy").setup({
           },
         },
         experimental = {
-          ghost_text = true,
+          ghost_text = false,
         },
       }
     end,
@@ -363,12 +372,17 @@ require("lazy").setup({
   -- Highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate",
     config = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
       -- [[ Configure Treesitter ]]
       -- See `:help nvim-treesitter`
       require('nvim-treesitter.configs').setup {
-        highlight = { enable = true },
+        ensure_installed = "all",
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
         indent = { enable = true },
         incremental_selection = {
           enable = true,
@@ -427,8 +441,8 @@ require("lazy").setup({
       -- Diagnostic keymaps
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-      vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+      vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+      vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist)
     end,
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -451,7 +465,6 @@ require("lazy").setup({
           null_ls.builtins.diagnostics.fish,
           null_ls.builtins.diagnostics.gitlint,
           null_ls.builtins.diagnostics.hadolint, -- docker brew install hadolint
-          null_ls.builtins.diagnostics.jshint,
           null_ls.builtins.diagnostics.jsonlint,
           null_ls.builtins.diagnostics.luacheck,
           null_ls.builtins.diagnostics.markdownlint,
