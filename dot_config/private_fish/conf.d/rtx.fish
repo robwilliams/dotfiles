@@ -1,1 +1,1 @@
-~/bin/rtx activate fish | source
+~/.local/bin/rtx activate fish | source
