@@ -40,5 +40,5 @@ root: ~/Projects/YourTradebase/web-app
 # attach: false
 
 windows:
-  - editor: v .
+  - editor: nvim
   - overmind: overmind start -f Procfile.dev -c redis,postgres

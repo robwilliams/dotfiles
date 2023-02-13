@@ -12,3 +12,5 @@ zstyle :compinstall filename '/Users/rob/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+. "$HOME/.asdf/asdf.sh"
