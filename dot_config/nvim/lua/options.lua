@@ -24,6 +24,8 @@ o.hlsearch = false
 -- Make line numbers default.
 wo.number = true
 
+o.nu = true
+
 -- Enable mouse mode.
 o.mouse = 'a'
 
@@ -85,11 +87,11 @@ o.incsearch = true
 -- Highlight matches.
 o.hlsearch = true
 
--- Turn on line wrapping.
-o.wrap = true
+-- Turn off line wrapping.
+o.wrap = false
 
--- Show 3 lines of context around the cursor.
-o.scrolloff = 3
+-- Show 8 lines of context around the cursor.
+o.scrolloff = 8
 
 -- Set the terminal's title.
 o.title = true
