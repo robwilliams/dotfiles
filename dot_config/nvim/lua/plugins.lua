@@ -163,7 +163,7 @@ require("lazy").setup({
       vim.g.ack_use_cword_for_empty_search = 1
       -- Don't jump to the first match
       vim.cmd([[ cnoreabbrev Ack Ack! ]])
-      vim.keymap.set('n', '<C-g>', ':Ack! <CR>')
+      vim.keymap.set('n', '<C-g>', ':Ack! ')
     end,
   },
   "neomake/neomake",
@@ -181,6 +181,7 @@ require("lazy").setup({
     "tpope/vim-fugitive",
     config = function()
       vim.keymap.set('n', '<leader>gs', ':Git<CR>')
+      vim.keymap.set('n', '<leader>gb', ':Git blame<CR>')
     end,
   },
   "tpope/vim-rails",
@@ -194,6 +195,8 @@ require("lazy").setup({
       vim.keymap.set('n', '<leader>ve', ':Vexplore<CR>', { silent = true })
       vim.keymap.set('n', '<leader>se', ':Sexplore<CR>', { silent = true })
       vim.keymap.set('n', '<leader>e', ':Explore<CR>', { silent = true })
+      vim.g.splitbelow = true
+      vim.g.splitright = true
     end,
   },
   {
@@ -410,7 +413,7 @@ require("lazy").setup({
     "mbbill/undotree",
     config = function()
       vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>")
-      vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+      vim.opt.undodir = os.getenv("HOME") .. "/.undodir"
       vim.opt.undofile = true
     end,
   },

@@ -2,3 +2,4 @@ python 3.11.1
 ruby 3.2.0
 nodejs 19.5.0
 neovim nightly
+golang 1.20.1

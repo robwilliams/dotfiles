@@ -9,6 +9,9 @@
 [alias]
   fr = pull --rebase
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+  regexadd = "!f() { git diff -U0 \
+              | grepdiff -E $1 --output-matching=hunk \
+              | git apply --cached --unidiff-zero; }; f"
 [core]
   excludesfile = ~/dotfiles/gitignore_global
   autocrlf     = input
