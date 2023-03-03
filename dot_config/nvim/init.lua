@@ -1,4 +1,7 @@
 --[[ init.lua ]]
+-- Goodbye, netrw! My old friend.
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- These need to be defined before the first <Leader>
 -- is called; otherwise, it will default to "\".
@@ -22,5 +25,5 @@ vim.opt.rtp:prepend(lazypath)
 
 require('options')
 require('keymaps')
-require('plugins')
 require('auto_commands')
+require('plugins')

@@ -9,6 +9,8 @@ local wo = vim.wo
 
 o.nocompatible = true
 
+o.hidden = false
+
 -- Set 256 colours.
 g.t_co = 256
 o.termguicolors = true
@@ -24,7 +26,8 @@ o.hlsearch = false
 -- Make line numbers default.
 wo.number = true
 
-o.nu = true
+-- Show relative line numbers.
+wo.relativenumber = true
 
 -- Enable mouse mode.
 o.mouse = 'a'
@@ -60,8 +63,11 @@ o.autoindent = true
 -- Smart indentation
 o.smartindent = true
 
--- Treat '-' as part of word (for tab completion, etc)
+-- Treat special chars as part of word (for tab completion, etc)
 vim.opt.iskeyword:append("-")
+vim.opt.iskeyword:append("_")
+vim.opt.iskeyword:append("#")
+
 
 -- Display incomplete commands.
 o.showcmd = true
@@ -79,7 +85,7 @@ o.wildmenu = true
 o.wildmode = "list:longest"
 o.wildignore = o.wildignore .. ".git,.bundle"
 
-o.ls=2
+o.ls = 2
 
 -- Highlight matches as you type.
 o.incsearch = true
@@ -87,8 +93,8 @@ o.incsearch = true
 -- Highlight matches.
 o.hlsearch = true
 
--- Turn off line wrapping.
-o.wrap = false
+-- Turn on line wrapping.
+o.wrap = true
 
 -- Show 8 lines of context around the cursor.
 o.scrolloff = 8
@@ -98,7 +104,7 @@ o.title = true
 
 -- No beeping.
 o.visualbell = true
- 
+
 -- Don't make a backup before overwriting a file.
 o.nobackup = true
 o.nowritebackup = true
@@ -117,8 +123,8 @@ o.expandtab = true
 o.laststatus = 2
 
 -- Open new split panes to right and bottom, which feels more natural.
-o.splitbelow = true
-o.splitright = true
+g.splitbelow = true
+g.splitright = true
 
 -- Allows you to paste from clipboard without auto-indent.
 o.pastetoggle = "<F2>"

@@ -7,11 +7,10 @@
   branch = auto
 	ui = true
 [alias]
+  mergetool = "!nvim -c DiffviewOpen"
   fr = pull --rebase
-	tree = log --graph --decorate --pretty=oneline --abbrev-commit
-  regexadd = "!f() { git diff -U0 \
-              | grepdiff -E $1 --output-matching=hunk \
-              | git apply --cached --unidiff-zero; }; f"
+  tree = log --graph --decorate --pretty=oneline --abbrev-commit
+  searchadd = "!f() { git diff -U1 -S"$1" --pickaxe-regex | grepdiff "$1" | git apply --cached; }; f"
 [core]
   excludesfile = ~/dotfiles/gitignore_global
   autocrlf     = input
@@ -56,3 +55,5 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[init]
+	defaultBranch = main
