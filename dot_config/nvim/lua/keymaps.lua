@@ -1,20 +1,20 @@
 --[[ keymaps.lua ]]
--- See `:help vim.keymap.set()`
+-- See `:help vim.keymap.set()sdasddsfdf
 
 vim.keymap.set({ 'n', 'v' }, '<leader>', '<Nop>', { silent = true })
 
 -- j/k will move virtual lines (lines that wrap)
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 -- No arrow keys
 vim.keymap.set({ 'n', 'v' }, '<Up>', '<Nop>', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<Down>', '<Nop>', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<Left>', '<Nop>', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<Right>', '<Nop>', { silent = true })
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- move selected line(s) down
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- move selected line(s) up
 
 vim.keymap.set("n", "J", "mzJ`z")
 

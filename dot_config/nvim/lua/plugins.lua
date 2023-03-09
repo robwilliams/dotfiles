@@ -11,18 +11,6 @@ require("lazy").setup({
     end,
   },
   {
-    "rcarriga/nvim-notify",
-    lazy = false, -- load immediately
-    priority = 999, -- load first so all notifications are caught
-    config = function()
-      require("notify").setup({
-        stages = "fade_in_slide_out",
-      })
-
-      vim.notify = require("notify")
-    end,
-  },
-  {
     -- See `:help lualine.txt`
     "nvim-lualine/lualine.nvim",
     config = function()
@@ -50,72 +38,6 @@ require("lazy").setup({
           'toggleterm'
         }
       })
-    end,
-  },
-  {
-    "akinsho/nvim-bufferline.lua",
-    config = function()
-      require("bufferline").setup({
-        options = {
-          numbers = "ordinal",
-          number_style = "superscript",
-          --mappings = true,
-          --buffer_close_icon = "",
-          --modified_icon = "",
-          --close_icon = "",
-          --left_trunc_marker = "",
-          --right_trunc_marker = "",
-          --max_name_length = 18,
-          --max_prefix_length = 15,
-          --tab_size = 18,
-          diagnostics = "nvim_lsp",
-          --diagnostics_indicator = function(count, level, diagnostics_dict, context)
-          --local s = " "
-          --for e, n in pairs(diagnostics_dict) do
-          --local sym = e == "error" and " "
-          --or (e == "warning" and " " or "" )
-          --s = s .. n .. sym
-          --end
-          --return s
-          --end,
-          show_buffer_close_icons = false,
-          show_close_icon = false,
-          show_tab_indicators = true,
-          --persist_buffer_sort = true,
-          --separator_style = "thin",
-          enforce_regular_tabs = true,
-          always_show_bufferline = false,
-          --sort_by = "directory",
-        },
-      })
-
-      local close_all_buffers = function()
-        for _, e in ipairs(require('bufferline').get_elements().elements) do
-          vim.schedule(function()
-            vim.cmd("bd " .. e.id)
-          end)
-        end
-      end
-
-      -- TODO: Add a global keymap function to simplify this (and always add silent)
-      vim.keymap.set('n', '<leader>1', ':BufferLineGoToBuffer 1<CR>', { desc = 'Go to buffer 1' })
-      vim.keymap.set('n', '<leader>2', ':BufferLineGoToBuffer 2<CR>', { desc = 'Go to buffer 2' })
-      vim.keymap.set('n', '<leader>3', ':BufferLineGoToBuffer 3<CR>', { desc = 'Go to buffer 3' })
-      vim.keymap.set('n', '<leader>4', ':BufferLineGoToBuffer 4<CR>', { desc = 'Go to buffer 4' })
-      vim.keymap.set('n', '<leader>5', ':BufferLineGoToBuffer 5<CR>', { desc = 'Go to buffer 5' })
-      vim.keymap.set('n', '<leader>6', ':BufferLineGoToBuffer 6<CR>', { desc = 'Go to buffer 6' })
-      vim.keymap.set('n', '<leader>7', ':BufferLineGoToBuffer 7<CR>', { desc = 'Go to buffer 7' })
-      vim.keymap.set('n', '<leader>8', ':BufferLineGoToBuffer 8<CR>', { desc = 'Go to buffer 8' })
-      vim.keymap.set('n', '<leader>9', ':BufferLineGoToBuffer 9<CR>', { desc = 'Go to buffer 9' })
-      vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous buffer' })
-      vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next buffer' })
-      vim.keymap.set('n', '<leader>bp', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous buffer' })
-      vim.keymap.set('n', '<leader>bn', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next buffer' })
-      vim.keymap.set('n', '<leader>bq', '<cmd>bdelete<CR>', { desc = 'Close buffer' })
-      vim.keymap.set('n', '<leader>bq!', close_all_buffers, { desc = 'Close all buffers' })
-      vim.keymap.set('n', '<leader>bQ', '<cmd>bd!<CR>', { desc = 'Close buffer (force)' })
-      vim.keymap.set('n', '<leader>bsd', '<cmd>BufferLineSortByDirectory<CR>')
-      vim.keymap.set('n', '<leader>bse', '<cmd>BufferLineSortByExtension<CR>')
     end,
   },
   {
@@ -183,6 +105,7 @@ require("lazy").setup({
       require("todo-comments").setup({
         signs = true,
         keywords = {
+          -- FIX:
           FIX = {
             icon = " ",
             color = "error",
@@ -370,6 +293,38 @@ require("lazy").setup({
     },
   },
   {
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+        -- you can enable a preset for easier configuration
+        presets = {
+          bottom_search = true, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = true, -- enables an input dialog for inc-rename.nvim
+        },
+        cmdline_popup = {
+          border = {
+            style = "none",
+            padding = { 2, 3 },
+          },
+        },
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+  {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = 'make'
   },
@@ -381,10 +336,6 @@ require("lazy").setup({
         detection_methods = { "pattern", "lsp" },
       })
     end,
-  },
-  {
-    'stevearc/dressing.nvim',
-    config = true
   },
   "christoomey/vim-tmux-navigator",
   "christoomey/vim-tmux-runner",
@@ -490,18 +441,14 @@ require("lazy").setup({
       })
 
       cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline({
-          ['<CR>'] = nil,
-        }),
+        mapping = cmp.mapping.preset.cmdline({}),
         sources = cmp.config.sources({
           {
             name = 'cmdline',
             option = {
-              keyword_length = 2,
-              ignore_cmds = { 'Man', '!', 'w', 'w!' }
+              ignore_cmds = { 'Man', '!' }
             }
           },
-          { name = 'buffer' }
         })
       })
 
@@ -528,10 +475,8 @@ require("lazy").setup({
         nmap("[d", vim.diagnostic.goto_next)
         nmap("]d", vim.diagnostic.goto_prev)
         nmap("<leader>rf", vim.lsp.buf.references)
-        nmap("<leader>rn", vim.lsp.buf.rename)
         nmap("<C-h>", vim.lsp.buf.signature_help)
 
-        nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
         nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -595,6 +540,16 @@ require("lazy").setup({
       { "lukas-reineke/lsp-format.nvim" },
       { "jay-babu/mason-null-ls.nvim" },
     }
+  },
+  {
+    "smjonas/inc-rename.nvim",
+    config = function()
+      require("inc_rename").setup()
+
+      vim.keymap.set("n", "<leader>rn", function()
+        return ":IncRename " .. vim.fn.expand("<cword>")
+      end, { expr = true })
+    end,
   },
   {
     "folke/trouble.nvim",

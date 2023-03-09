@@ -22,8 +22,6 @@ vim.api.nvim_create_autocmd('BufRead,BufNewFile', {
   pattern = '*.html.erb',
 })
 
-vim.notify('Config reloaded', vim.log.levels.INFO, { title = 'Neovim' })
-
 vim.cmd([[
   augroup ReloadConfig
     autocmd!

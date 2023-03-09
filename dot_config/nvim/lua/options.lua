@@ -133,5 +133,5 @@ o.pastetoggle = "<F2>"
 g.loaded_perl_provider = 0
 
 -- Use ripgrep for searching.
-g.grepprg = "rg --vimgrep --no-heading --smart-case --hidden --follow --glob '!{.git,node_modules}/*'"
+g.grepprg = "rg --vimgrep --no-heading --smart-case --hidden --follow --glob '!**/{.git,node_modules,log,vendor}/*'"
 g.grepformat = "%f:%l:%c:%m,%f:%l:%m"
