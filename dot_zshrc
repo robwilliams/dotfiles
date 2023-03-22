@@ -13,4 +13,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-. "$HOME/.asdf/asdf.sh"
+export PATH=/Users/Rob/.local/bin:$PATH
+
+eval "$(rtx activate zsh)"
