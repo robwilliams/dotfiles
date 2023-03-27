@@ -39,8 +39,6 @@ vim.keymap.set("n", "<leader>q", "<cmd>:bdelete<CR>")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { desc = "[S]wap word under cursor" })
-vim.keymap.set("v", "<leader>s", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = "[S]wap word under cursor" })
 
 -- Fix common typos
 vim.cmd([[

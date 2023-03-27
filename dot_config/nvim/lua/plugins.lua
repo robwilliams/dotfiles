@@ -148,49 +148,49 @@ require("lazy").setup({
       require("nvim-ts-autotag").setup()
     end,
   },
-  {
-    "folke/trouble.nvim",
-    config = function()
-      require("trouble").setup({
-        auto_open = false,
-        auto_close = true,
-        auto_preview = true,
-        auto_fold = true,
-        signs = {
-          error = "",
-          warning = "",
-          hint = "",
-          information = "",
-          other = "﫠",
-        },
-        use_diagnostic_signs = true,
-      })
-      vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
-        { silent = true, noremap = true }
-      )
-      vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-        { silent = true, noremap = true }
-      )
-      vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
-        { silent = true, noremap = true }
-      )
-      vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
-        { silent = true, noremap = true }
-      )
-      vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
-        { silent = true, noremap = true }
-      )
-      vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
-        { silent = true, noremap = true }
-      )
-      vim.keymap.set("n", "gr", "<cmd>Trouble lsp_references<cr>",
-        { silent = true, noremap = true }
-      )
-      vim.keymap.set("n", "<leader>xt", "<cmd>TodoTrouble<cr>",
-        { silent = true, noremap = true }
-      )
-    end,
-  },
+  -- {
+  --   "folke/trouble.nvim",
+  --   config = function()
+  --     require("trouble").setup({
+  --       auto_open = false,
+  --       auto_close = true,
+  --       auto_preview = true,
+  --       auto_fold = true,
+  --       signs = {
+  --         error = "",
+  --         warning = "",
+  --         hint = "",
+  --         information = "",
+  --         other = "﫠",
+  --       },
+  --       use_diagnostic_signs = true,
+  --     })
+  --     vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+  --       { silent = true, noremap = true }
+  --     )
+  --     vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+  --       { silent = true, noremap = true }
+  --     )
+  --     vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+  --       { silent = true, noremap = true }
+  --     )
+  --     vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+  --       { silent = true, noremap = true }
+  --     )
+  --     vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+  --       { silent = true, noremap = true }
+  --     )
+  --     vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+  --       { silent = true, noremap = true }
+  --     )
+  --     vim.keymap.set("n", "gr", "<cmd>Trouble lsp_references<cr>",
+  --       { silent = true, noremap = true }
+  --     )
+  --     vim.keymap.set("n", "<leader>xt", "<cmd>TodoTrouble<cr>",
+  --       { silent = true, noremap = true }
+  --     )
+  --   end,
+  -- },
   {
     -- See `:help telescope` and `:help telescope.setup()`
     "nvim-telescope/telescope.nvim",
@@ -251,16 +251,12 @@ require("lazy").setup({
       -- Enable telescope fzf native, if installed
       pcall(telescope.load_extension, 'fzf')
 
-      telescope.load_extension('projects')
       telescope.load_extension("notify")
       telescope.load_extension("ui-select")
-      telescope.load_extension("file_browser")
 
       -- See `:help telescope.builtin`
       local builtin = require('telescope.builtin')
-      vim.api.nvim_set_keymap("n", "-", "<cmd>Telescope file_browser path=%:p:h select_buffer=true <cr>", {})
 
-      -- TODO: Use vim ui to get input
       vim.keymap.set('n', '<C-g>', function()
         builtin.grep_string({ search = vim.fn.input("Grep > ") })
       end, { desc = 'Find files using [g]rep' })
@@ -270,57 +266,17 @@ require("lazy").setup({
       vim.keymap.set('n', '<leader>fc', builtin.commands, { desc = 'Find [c]ommands' })
       vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Find [d]iagnostics' })
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
-      vim.keymap.set('n', '<leader>fe', require 'telescope'.extensions.file_browser.file_browser,
-        { desc = 'File [E]xplore' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find [h]elp' })
       vim.keymap.set('n', '<leader>fn', require 'telescope'.extensions.notify.notify, { desc = 'Find [n]otifications' })
-      vim.keymap.set('n', '<leader>fp', require 'telescope'.extensions.projects.projects, { desc = 'Find [p]rojects' })
       vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find [r]ecently opened files' })
       vim.keymap.set('n', '<leader>fs', builtin.live_grep, { desc = 'Find [s]tring' })
       vim.keymap.set('n', '<leader>ft', "<cmd>TodoTelescope<cr>", { desc = 'Find [t]odos' })
       vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Find current [w]ord' })
-      vim.keymap.set('n', '<leader>/', function()
-        builtin.current_buffer_fuzzy_find({ previewer = false })
-      end, { desc = '[/] Find current buffer' })
     end,
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",
       "nvim-lua/plenary.nvim",
-      "ahmedkhalf/project.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
-      "rcarriga/nvim-notify",
-      "nvim-telescope/telescope-file-browser.nvim",
-    },
-  },
-  {
-    "folke/noice.nvim",
-    config = function()
-      require("noice").setup({
-        lsp = {
-          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-        },
-        -- you can enable a preset for easier configuration
-        presets = {
-          bottom_search = true, -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
-          long_message_to_split = true, -- long messages will be sent to a split
-          inc_rename = true, -- enables an input dialog for inc-rename.nvim
-        },
-        cmdline_popup = {
-          border = {
-            style = "none",
-            padding = { 2, 3 },
-          },
-        },
-      })
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
   },
@@ -328,15 +284,47 @@ require("lazy").setup({
     "nvim-telescope/telescope-fzf-native.nvim",
     build = 'make'
   },
-  {
-    -- https://github.com/ahmedkhalf/project.nvim#%EF%B8%8F-configuration
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("project_nvim").setup({
-        detection_methods = { "pattern", "lsp" },
-      })
-    end,
-  },
+  -- {
+  --   "folke/noice.nvim",
+  --   config = function()
+  --     require("noice").setup({
+  --       lsp = {
+  --         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+  --         override = {
+  --           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+  --           ["vim.lsp.util.stylize_markdown"] = true,
+  --           ["cmp.entry.get_documentation"] = true,
+  --         },
+  --       },
+  --       -- you can enable a preset for easier configuration
+  --       presets = {
+  --         bottom_search = true, -- use a classic bottom cmdline for search
+  --         command_palette = true, -- position the cmdline and popupmenu together
+  --         long_message_to_split = true, -- long messages will be sent to a split
+  --         inc_rename = true, -- enables an input dialog for inc-rename.nvim
+  --       },
+  --       cmdline_popup = {
+  --         border = {
+  --           style = "none",
+  --           padding = { 2, 3 },
+  --         },
+  --       },
+  --     })
+  --   end,
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --   },
+  -- },
+  -- {
+  --   -- https://github.com/ahmedkhalf/project.nvim#%EF%B8%8F-configuration
+  --   "ahmedkhalf/project.nvim",
+  --   config = function()
+  --     require("project_nvim").setup({
+  --       detection_methods = { "pattern", "lsp" },
+  --     })
+  --   end,
+  -- },
   "christoomey/vim-tmux-navigator",
   "christoomey/vim-tmux-runner",
   "godlygeek/tabular",
@@ -348,6 +336,7 @@ require("lazy").setup({
   },
   "stefandtw/quickfix-reflector.vim",
   "tpope/vim-endwise",
+  "tpope/vim-vinegar",
   "tpope/vim-eunuch",
   {
     "tpope/vim-fugitive",
@@ -365,11 +354,11 @@ require("lazy").setup({
     "vim-test/vim-test",
     config = function()
       vim.g["test#strategy"] = "neovim"
-      -- vim.keymap.set('n', '<leader>tt', ':TestNearest<CR>')
-      -- vim.keymap.set('n', '<leader>tf', ':TestFile<CR>')
-      -- vim.keymap.set('n', '<leader>ts', ':TestSuite<CR>')
-      -- vim.keymap.set('n', '<leader>tl', ':TestLast<CR>')
-      -- vim.keymap.set('n', '<leader>tv', ':TestVisit<CR>')
+      vim.keymap.set('n', '<leader>vn', ':TestNearest<CR>')
+      vim.keymap.set('n', '<leader>vf', ':TestFile<CR>')
+      vim.keymap.set('n', '<leader>vs', ':TestSuite<CR>')
+      vim.keymap.set('n', '<leader>vl', ':TestLast<CR>')
+      vim.keymap.set('n', '<leader>vv', ':TestVisit<CR>')
     end,
   },
   {
@@ -413,8 +402,6 @@ require("lazy").setup({
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ['<C-Space>'] = cmp.mapping.complete(),
       })
-      mapping['<Tab>'] = nil
-      mapping['<S-Tab>'] = nil
 
       lsp.setup_nvim_cmp({
         mapping = mapping,
@@ -433,24 +420,24 @@ require("lazy").setup({
       })
 
       -- `/` cmdline setup.
-      cmp.setup.cmdline('/', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' }
-        }
-      })
+      -- cmp.setup.cmdline('/', {
+      --   mapping = cmp.mapping.preset.cmdline(),
+      --   sources = {
+      --     { name = 'buffer' }
+      --   }
+      -- })
 
-      cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline({}),
-        sources = cmp.config.sources({
-          {
-            name = 'cmdline',
-            option = {
-              ignore_cmds = { 'Man', '!' }
-            }
-          },
-        })
-      })
+      -- cmp.setup.cmdline(':', {
+      --   mapping = cmp.mapping.preset.cmdline({}),
+      --   sources = cmp.config.sources({
+      --     {
+      --       name = 'cmdline',
+      --       option = {
+      --         ignore_cmds = { 'Man', '!' }
+      --       }
+      --     },
+      --   })
+      -- })
 
       require("mason-null-ls").setup({
         automatic_setup = true,
@@ -542,35 +529,6 @@ require("lazy").setup({
     }
   },
   {
-    "smjonas/inc-rename.nvim",
-    config = function()
-      require("inc_rename").setup()
-
-      vim.keymap.set("n", "<leader>rn", function()
-        return ":IncRename " .. vim.fn.expand("<cword>")
-      end, { expr = true })
-    end,
-  },
-  {
-    "folke/trouble.nvim",
-    config = function()
-      require("trouble").setup({
-        auto_open = false,
-        auto_close = true,
-        auto_preview = true,
-        auto_fold = true,
-        signs = {
-          error = "",
-          warning = "",
-          hint = "",
-          information = "",
-          other = "﫠",
-        },
-        lsp_diagnostic_signs = true,
-      })
-    end,
-  },
-  {
     "folke/todo-comments.nvim",
     config = function()
       require("todo-comments").setup({
@@ -594,31 +552,31 @@ require("lazy").setup({
       })
     end
   },
-  {
-    'ThePrimeagen/harpoon',
-    config = function()
-      require('harpoon').setup()
-      local mark = require("harpoon.mark")
-      local ui = require("harpoon.ui")
+  -- {
+  --   'ThePrimeagen/harpoon',
+  --   config = function()
+  --     require('harpoon').setup()
+  --     local mark = require("harpoon.mark")
+  --     local ui = require("harpoon.ui")
 
-      vim.keymap.set("n", "<leader>ha", mark.add_file, { desc = "[H]arpoon [a]dd file" })
-      vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu, { desc = "[C-e] Open Harpoon quick menu" })
+  --     vim.keymap.set("n", "<leader>ha", mark.add_file, { desc = "[H]arpoon [a]dd file" })
+  --     vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu, { desc = "[C-e] Open Harpoon quick menu" })
 
-      vim.keymap.set("n", "<leader>h1", function() ui.nav_file(2) end)
-      vim.keymap.set("n", "<leader>h2", function() ui.nav_file(2) end)
-      vim.keymap.set("n", "<leader>h3", function() ui.nav_file(3) end)
-      vim.keymap.set("n", "<leader>h4", function() ui.nav_file(4) end)
-    end,
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-  },
-  {
-    'goolord/alpha-nvim',
-    config = function()
-      require 'alpha'.setup(require 'alpha.themes.startify'.config)
-    end
-  },
+  --     vim.keymap.set("n", "<leader>h1", function() ui.nav_file(2) end)
+  --     vim.keymap.set("n", "<leader>h2", function() ui.nav_file(2) end)
+  --     vim.keymap.set("n", "<leader>h3", function() ui.nav_file(3) end)
+  --     vim.keymap.set("n", "<leader>h4", function() ui.nav_file(4) end)
+  --   end,
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --   },
+  -- },
+  -- {
+  --   'goolord/alpha-nvim',
+  --   config = function()
+  --     require 'alpha'.setup(require 'alpha.themes.startify'.config)
+  --   end
+  -- },
   -- Shows what nvim-lsp is doing
   {
     "j-hui/fidget.nvim",
@@ -650,18 +608,13 @@ require("lazy").setup({
     end,
   },
   { "nvim-tree/nvim-web-devicons" },
-  { "github/copilot.vim",
-    config = function()
-      vim.g.copilot_enabled = true
-      vim.g.copilot_assume_mapped = true
-    end,
-  },
+  { "github/copilot.vim" },
   -- Highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
     config = function()
-      --pcall(require('nvim-treesitter.install').update { with_sync = true })
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
       -- [[ Configure Treesitter ]]
       -- See `:help nvim-treesitter`
       require('nvim-treesitter.configs').setup {

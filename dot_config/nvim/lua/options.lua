@@ -7,10 +7,6 @@ local g = vim.g
 local o = vim.o
 local wo = vim.wo
 
-o.nocompatible = true
-
-o.hidden = false
-
 -- Set 256 colours.
 g.t_co = 256
 o.termguicolors = true
@@ -18,7 +14,7 @@ o.termguicolors = true
 g.background = "dark"
 
 -- Show cursor position.
-g.ruler = true
+o.ruler = true
 
 -- Set highlight on search.
 o.hlsearch = false
@@ -123,8 +119,8 @@ o.expandtab = true
 o.laststatus = 2
 
 -- Open new split panes to right and bottom, which feels more natural.
-g.splitbelow = true
-g.splitright = true
+o.splitbelow = true
+o.splitright = true
 
 -- Allows you to paste from clipboard without auto-indent.
 o.pastetoggle = "<F2>"
