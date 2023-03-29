@@ -28,3 +28,10 @@ sourceDir: "{{ .chezmoi.sourceDir }}"
 data:
   name: "{{ $name }}"
   email: "{{ $email }}"
+
+edit:
+  command: "nvim"
+
+diff:
+  exclude:
+    - scripts
