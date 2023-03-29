@@ -1,8 +1,8 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 sudo apt-get update
-sudo apt-get install -y ripgrep fish
+sudo apt-get install -y ripgrep fish tmux
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
-brew install ripgrep fish
+brew install ripgrep fish tmux
 {{ end -}}
