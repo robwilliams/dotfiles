@@ -248,6 +248,8 @@ require("lazy").setup({
         }
       })
 
+      require("telescope").load_extension("rails")
+
       -- Enable telescope fzf native, if installed
       pcall(telescope.load_extension, 'fzf')
 
@@ -272,11 +274,18 @@ require("lazy").setup({
       vim.keymap.set('n', '<leader>fs', builtin.live_grep, { desc = 'Find [s]tring' })
       vim.keymap.set('n', '<leader>ft', "<cmd>TodoTelescope<cr>", { desc = 'Find [t]odos' })
       vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Find current [w]ord' })
+      vim.keymap.set('n', '<leader>rs', ':Telescope rails specs<CR>', { desc = 'Find rails specs'})
+      vim.keymap.set('n', '<leader>rc', ':Telescope rails controllers<CR>', { desc = 'Find rails controllers' })
+      vim.keymap.set('n', '<leader>rm', ':Telescope rails models<CR>', { desc = 'Find rails models' })
+      vim.keymap.set('n', '<leader>rv', ':Telescope rails views<CR>', { desc = 'Find rails views'})
+      vim.keymap.set('n', '<leader>ri', ':Telescope rails migrations<CR>', {desc = 'Find rails migrations'})
+      vim.keymap.set('n', '<leader>rl', ':Telescope rails libs<CR>', { desc = 'Find rails libs'})
     end,
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
+      "sato-s/telescope-rails.nvim",
       "rcarriga/nvim-notify",
     },
   },
@@ -336,6 +345,7 @@ require("lazy").setup({
   },
   "stefandtw/quickfix-reflector.vim",
   "tpope/vim-endwise",
+  "tpope/vim-projectionist",
   "tpope/vim-vinegar",
   "tpope/vim-eunuch",
   {
@@ -354,11 +364,9 @@ require("lazy").setup({
     "vim-test/vim-test",
     config = function()
       vim.g["test#strategy"] = "neovim"
-      vim.keymap.set('n', '<leader>vn', ':TestNearest<CR>')
-      vim.keymap.set('n', '<leader>vf', ':TestFile<CR>')
-      vim.keymap.set('n', '<leader>vs', ':TestSuite<CR>')
-      vim.keymap.set('n', '<leader>vl', ':TestLast<CR>')
-      vim.keymap.set('n', '<leader>vv', ':TestVisit<CR>')
+      vim.keymap.set('n', '<leader>t', ':TestNearest<CR>')
+      vim.keymap.set('n', '<leader>f', ':TestFile<CR>')
+      vim.keymap.set('n', '<leader>l', ':TestLast<CR>')
     end,
   },
   {

@@ -78,10 +78,9 @@ o.backspace = "indent,eol,start"
 o.wildmenu = true
 
 -- Complete files like a shell.
-o.wildmode = "list:longest"
 o.wildignore = o.wildignore .. ".git,.bundle"
 
-o.ls = 2
+o.ls = 2 -- Show some invisible characters (tabs...
 
 -- Highlight matches as you type.
 o.incsearch = true
