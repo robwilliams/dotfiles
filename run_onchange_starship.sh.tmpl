@@ -1,6 +1,6 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
-curl -sSf https://starship.rs/install.sh | bash -s -- --yes
+curl -sSf https://starship.rs/install.sh | sh -- --yes
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 brew install starship
