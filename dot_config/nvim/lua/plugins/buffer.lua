@@ -1,5 +1,13 @@
 return {
   {
+    "mini.comment",
+    opts = {
+      mappings = {
+        comment_line = "<leader>c<leader>",
+      },
+    },
+  },
+  {
     "folke/todo-comments.nvim",
     lazy = true,
     event = "BufReadPre",
