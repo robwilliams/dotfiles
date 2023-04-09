@@ -18,8 +18,3 @@ end
 map("n", "<C-W>x", "<C-W>q", { desc = "Quit window (RW)" })
 map("n", '<C-W>"', "<C-W>s", { desc = "Split window below (RW)" })
 map("n", "<C-W>%", "<C-W>v", { desc = "Split window right (RW)" })
-
--- tabs
-map("n", "<leader>tt", "<cmd>tabnew<cr>", { desc = "New Tab (RW)" })
-map("n", "<leader>tn", "<cmd>tabnext<cr>", { desc = "Next Tab (RW)" })
-map("n", "<leader>tp", "<cmd>tabprevious<cr>", { desc = "Previous Tab (RW)" })

@@ -1,23 +1,22 @@
 return {
   {
-    "navarasu/onedark.nvim",
-    lazy = false, -- load immediately
-    priority = 1000, -- load first
-    config = function()
-      require("onedark").setup({
-        style = "deep",
-      })
-    end,
-  },
-
-  -- Configure LazyVim to load onedark
-  {
-    "LazyVim/LazyVim",
+    "folke/noice.nvim",
     opts = {
-      colorscheme = "onedark",
+      messages = {
+        -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+        -- This is a current Neovim limitation.
+        enabled = true, -- enables the Noice messages UI
+        view = "mini", -- default view for messages
+        view_error = "mini", -- view for errors
+        view_warn = "mini", -- view for warnings
+        view_history = "messages", -- view for :messages
+        view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+      },
+      presets = {
+        bottom_search = true,
+        command_palette = true,
+        long_message_to_split = true,
+      },
     },
-  },
-  {
-    "christoomey/vim-tmux-navigator",
   },
 }

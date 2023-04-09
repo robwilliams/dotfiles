@@ -1,4 +1,6 @@
 return {
+  { "tpope/vim-fugitive" }, -- git integration
+  { "tpope/vim-rhubarb" }, -- Fugitive github integration
   {
     "sindrets/diffview.nvim",
     keys = {
