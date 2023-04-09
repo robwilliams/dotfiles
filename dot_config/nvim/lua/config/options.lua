@@ -16,3 +16,6 @@ vim.o.wrap = true
 
 -- Do not use the system clipboard.
 vim.o.clipboard = ""
+
+-- Treat - as part of word (for tab completion, etc)
+vim.opt.iskeyword:append("-")

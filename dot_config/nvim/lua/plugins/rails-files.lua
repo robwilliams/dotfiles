@@ -1,42 +1,42 @@
--- TODO: Move to find_files_scoped.lua or extension
-local pickers = require("telescope.pickers")
-local finders = require("telescope.finders")
-local make_entry = require("telescope.make_entry")
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
-local conf = require("telescope.config").values
-
-local find_files_scoped = function(opts)
-  opts.search_dir = opts.search_dir or ""
-  opts.prompt_title = opts.prompt_title or "Find files"
-  opts.file_suffix = opts.file_suffix or ""
-  opts.file_extension = opts.file_extension or ""
-  -- TODO: Loop through projectionist values to create each picker?
-  -- TODO: Would git churn be a good sorter?
-  -- TODO: Action to open alternate file (using projectionist-vim)
-  -- TODO: It doesn't look like path_display allows extensions to be removed (hide_extension), might be a good PR (https://github.com/nvim-telescope/telescope.nvim/blob/942fe5faef47b21241e970551eba407bc10d9547/lua/telescope/utils.lua#L196)
-  -- TODO : Could provide camelised class name in display too (More rails convention specific)
-  opts.entry_maker = function(line)
-    -- Remove search_dirs and path before them
-    local scoped_line = line
-    scoped_line = scoped_line:gsub(".*" .. opts.search_dir .. "/", "")
-
-    -- Remove extension
-    scoped_line = scoped_line:gsub(opts.file_suffix, "")
-    scoped_line = scoped_line:gsub(opts.file_extension, "")
-
-    return { ordinal = scoped_line, display = scoped_line, value = line }
-  end
-
-  -- TODO: Extension needs to be included in fd, but we need to be able to supply multiple
-  -- TODO: Extension is currently taking out the first char so .erb will gsub to . as well as .rb to blank
-  pickers
-    .new({
-      finder = finders.new_oneshot_job({ "fd", ".", opts.search_dir }, opts),
-      sorter = conf.generic_sorter(opts),
-    }, opts)
-    :find()
-end
+-- -- TODO: Move to find_files_scoped.lua or extension
+-- local pickers = require("telescope.pickers")
+-- local finders = require("telescope.finders")
+-- local make_entry = require("telescope.make_entry")
+-- local actions = require("telescope.actions")
+-- local action_state = require("telescope.actions.state")
+-- local conf = require("telescope.config").values
+--
+-- local find_files_scoped = function(opts)
+--   opts.search_dir = opts.search_dir or ""
+--   opts.prompt_title = opts.prompt_title or "Find files"
+--   opts.file_suffix = opts.file_suffix or ""
+--   opts.file_extension = opts.file_extension or ""
+--   -- TODO: Loop through projectionist values to create each picker?
+--   -- TODO: Would git churn be a good sorter?
+--   -- TODO: Action to open alternate file (using projectionist-vim)
+--   -- TODO: It doesn't look like path_display allows extensions to be removed (hide_extension), might be a good PR (https://github.com/nvim-telescope/telescope.nvim/blob/942fe5faef47b21241e970551eba407bc10d9547/lua/telescope/utils.lua#L196)
+--   -- TODO : Could provide camelised class name in display too (More rails convention specific)
+--   opts.entry_maker = function(line)
+--     -- Remove search_dirs and path before them
+--     local scoped_line = line
+--     scoped_line = scoped_line:gsub(".*" .. opts.search_dir .. "/", "")
+--
+--     -- Remove extension
+--     scoped_line = scoped_line:gsub(opts.file_suffix, "")
+--     scoped_line = scoped_line:gsub(opts.file_extension, "")
+--
+--     return { ordinal = scoped_line, display = scoped_line, value = line }
+--   end
+--
+--   -- TODO: Extension needs to be included in fd, but we need to be able to supply multiple
+--   -- TODO: Extension is currently taking out the first char so .erb will gsub to . as well as .rb to blank
+--   pickers
+--     .new({
+--       finder = finders.new_oneshot_job({ "fd", ".", opts.search_dir }, opts),
+--       sorter = conf.generic_sorter(opts),
+--     }, opts)
+--     :find()
+-- end
 
 return {
   {

@@ -97,4 +97,9 @@ return {
     "tpope/vim-abolish",
     event = { "BufReadPre", "BufNewFile" },
   },
+  {
+    -- Edit lines of files in a quickfix window
+    "stefandtw/quickfix-reflector.vim",
+    event = { "BufReadPre", "BufNewFile" },
+  },
 }
