@@ -1,7 +1,6 @@
 return {
   {
     "vim-test/vim-test",
-    lazy = true,
     keys = {
       { "<leader>tn", "<cmd>TestNearest<cr>", desc = "Test Nearest (RW)" },
       { "<leader>tf", "<cmd>TestFile<cr>", desc = "Test File (RW)" },

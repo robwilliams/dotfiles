@@ -15,6 +15,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- windows (match tmux keybindings)
-map("n", "<C-W>x", "<C-W>q", { desc = "Quit window (RW)" })
-map("n", '<C-W>"', "<C-W>s", { desc = "Split window below (RW)" })
-map("n", "<C-W>%", "<C-W>v", { desc = "Split window right (RW)" })
+map("n", "<C-W>x", "<C-W>q", { desc = "Close window" })
+map("n", '<C-W>"', "<C-W>s", { desc = "Split window below" })
+map("n", "<C-W>%", "<C-W>v", { desc = "Split window right" })
+map("n", "<leader>Q", "<cmd>qa!<cr>", { desc = "Force quit!" })

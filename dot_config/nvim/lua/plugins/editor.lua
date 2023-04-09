@@ -92,6 +92,9 @@ return {
     "tpope/vim-endwise",
     event = { "BufReadPre", "BufNewFile" },
   },
-  -- coercion https://github.com/tpope/vim-abolish
-  { "tpope/vim-abolish", event = { "BufReadPre", "BufNewFile" } },
+  {
+    -- coercion https://github.com/tpope/vim-abolish
+    "tpope/vim-abolish",
+    event = { "BufReadPre", "BufNewFile" },
+  },
 }
