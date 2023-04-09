@@ -1,2 +1,4 @@
 bundler
 neovim
+gem-ctags
+gem-browse
