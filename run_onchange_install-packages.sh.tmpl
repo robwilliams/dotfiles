@@ -6,4 +6,5 @@ sudo apt-get install -y --no-install-recommends \
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 brew install ripgrep fish tmux fd
+brew install --cask alt-tab --force
 {{ end -}}
