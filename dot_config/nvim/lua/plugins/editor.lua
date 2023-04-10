@@ -2,21 +2,29 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     config = function()
+      require("telescope").load_extension("fzf")
       require("telescope").load_extension("file_browser")
     end,
     keys = {
-      { "<C-P>", "<cmd>Telescope find_files<cr>", desc = "Find Files (RW)" },
-      { "<Space>", "<cmd>Telescope buffers<cr>", desc = "Find Buffers (RW)" },
+      { "<C-P>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      { "<Space>", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
       {
         "<C-G>",
         function()
           require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
         end,
-        desc = "Find files using grep (RW)",
+        desc = "Find files using grep",
       },
     },
     opts = {
       defaults = {},
+    },
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+      config = function()
+        require("telescope").load_extension("fzf")
+      end,
     },
   },
   {
@@ -25,16 +33,16 @@ return {
       {
         "<leader>fe",
         "<cmd>Telescope file_browser<cr>",
-        desc = "Telescope File Browser (root dir) RW",
+        desc = "Telescope File Browser (root dir) ",
       },
       {
         "<leader>fE",
         "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>",
-        desc = "Telescope File Browser (cwd) (RW)",
+        desc = "Telescope File Browser (cwd)",
       },
-      { "<leader>e", "<leader>fe", desc = "Telescope File Browser (root dir) (RW)", remap = true },
-      { "<leader>E", "<leader>fE", desc = "Telescope File Browser (cwd) (RW)", remap = true },
-      { "-", "<leader>fE", desc = "Telescope File Browser (cwd vinegar) (RW)", remap = true },
+      { "<leader>e", "<leader>fe", desc = "File Browser (root dir)", remap = true },
+      { "<leader>E", "<leader>fE", desc = "File Browser (cwd)", remap = true },
+      { "-", "<leader>fE", desc = "File Browser (cwd)", remap = true },
     },
     dependencies = {
       "nvim-telescope/telescope.nvim",
@@ -83,11 +91,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
   },
   {
-    -- readline mappings
-    "tpope/vim-rsi",
-    event = { "BufReadPre", "BufNewFile" },
-  },
-  {
     -- Adds end automatically
     "tpope/vim-endwise",
     event = { "BufReadPre", "BufNewFile" },
@@ -101,5 +104,10 @@ return {
     -- Edit lines of files in a quickfix window
     "stefandtw/quickfix-reflector.vim",
     event = { "BufReadPre", "BufNewFile" },
+  },
+  {
+    --  It makes the gutter too noisy
+    "folke/trouble.nvim",
+    opts = { use_diagnostic_signs = false },
   },
 }
