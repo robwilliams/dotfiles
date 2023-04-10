@@ -3,7 +3,6 @@ return {
   { "tpope/vim-rails", event = "VeryLazy", dev = true },
   { "tpope/vim-bundler", event = "VeryLazy" },
   { "tpope/vim-rake", event = "VeryLazy" },
-  -- TODO: Add Ruby lsps
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -22,6 +21,14 @@ return {
       if type(opts.ensure_installed) == "table" then
         vim.list_extend(opts.ensure_installed, { "ruby" })
       end
+    end,
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function(_, opts)
+      local null_ls = require("null-ls")
+      table.insert(opts.sources, null_ls.builtins.formatting.rubocop)
+      table.insert(opts.sources, null_ls.builtins.diagnostics.rubocop)
     end,
   },
 }
