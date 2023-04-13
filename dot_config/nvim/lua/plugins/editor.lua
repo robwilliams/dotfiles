@@ -17,7 +17,14 @@ return {
       },
     },
     opts = {
-      defaults = {},
+      defaults = {
+        pickers = {
+          find_files = {
+            -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+          },
+        },
+      },
     },
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -48,6 +55,20 @@ return {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
     },
+  },
+  {
+    "mbbill/undotree",
+    keys = {
+      {
+        "<leader>u",
+        "<cmd>UndotreeToggle<cr>",
+        desc = "Undo Tree",
+      },
+    },
+    config = function()
+      vim.opt.undodir = os.getenv("HOME") .. "/.undodir"
+      vim.opt.undofile = true
+    end,
   },
   {
     "folke/todo-comments.nvim",
