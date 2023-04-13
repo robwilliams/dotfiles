@@ -2,7 +2,6 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     config = function()
-      pcall(require("telescope").load_extension, 'fzf')
       require("telescope").load_extension("file_browser")
     end,
     keys = {
@@ -33,6 +32,9 @@ return {
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",
+    config = function()
+      pcall(require("telescope").load_extension, "fzf")
+    end,
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
@@ -54,6 +56,15 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
+    },
+  },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require("telescope").load_extension("frecency")
+    end,
+    dependencies = {
+      "kkharji/sqlite.lua",
     },
   },
   {
