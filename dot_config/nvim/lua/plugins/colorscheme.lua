@@ -10,11 +10,10 @@ return {
     end,
   },
 
-  -- Configure LazyVim to load onedark
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "onedark",
+      colorscheme = "onedark", -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
     },
   },
 }

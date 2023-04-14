@@ -20,12 +20,10 @@ map("n", '<C-W>"', "<C-W>s", { desc = "Split window below" })
 map("n", "<C-W>%", "<C-W>v", { desc = "Split window right" })
 map("n", "<leader>Q", "<cmd>qa!<cr>", { desc = "Force quit!" })
 map("n", "Q", "<nop>")
-map(
-  "n",
-  "<leader>s",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left><Space>]],
-  { desc = "Swap word under cursor" }
-)
+
+-- FIXME: Command window doesn't open correctly when using <leader>s
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Swap word under cursor" })
+-- TODO: Allow for <leader>s replace for visual selection
 
 -- Fix common typos
 vim.cmd([[

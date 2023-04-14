@@ -1,19 +1,9 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    config = function()
-      require("telescope").load_extension("file_browser")
-    end,
     keys = {
       { "<C-P>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       { "<Space>", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
-      {
-        "<C-G>",
-        function()
-          require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
-        end,
-        desc = "Find files using grep",
-      },
     },
     opts = {
       defaults = {
@@ -53,19 +43,38 @@ return {
       { "<leader>E", "<leader>fE", desc = "File Browser (cwd)", remap = true },
       { "-", "<leader>fE", desc = "File Browser (cwd)", remap = true },
     },
+    config = function()
+      require("telescope").load_extension("file_browser")
+    end,
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
     },
   },
   {
-    "nvim-telescope/telescope-frecency.nvim",
-    config = function()
-      require("telescope").load_extension("frecency")
-    end,
-    dependencies = {
-      "kkharji/sqlite.lua",
+    -- https://www.freecodecamp.org/news/how-to-search-project-wide-vim-ripgrep-ack/
+    "mileszs/ack.vim",
+    keys = {
+      {
+        "<C-G>",
+        ":Ack<space>",
+        desc = "Find files using rgrep",
+      },
     },
+    config = function()
+      vim.g.ackprg = "rg --vimgrep --no-heading --hidden --glob '!**/.git/*' --type-not sql --smart-case"
+
+      -- Auto close the Quickfix list after pressing '<enter>' on a list item
+      vim.g.ack_autoclose = 1
+
+      -- Search for word under cursor
+      vim.g.ack_use_cword_for_empty_search = 1
+
+      -- TODO: Allow for C-g search for visual selection
+
+      -- Don't jump to the first match
+      vim.cmd("cnoreabbrev Ack Ack!")
+    end,
   },
   {
     "mbbill/undotree",
