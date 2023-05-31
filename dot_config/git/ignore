@@ -10,3 +10,5 @@
 config/definitions.rb
 node_modules
 tags
+TAGS
+projections.json

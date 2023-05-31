@@ -11,23 +11,17 @@ return {
       vim.g.ale_lint_on_insert_leave = 1
       vim.g.ale_fix_on_save = 1
       -- " === ale ===
-      vim.g.ale_linters = {
-         javascript = {'eslint', 'autoimport'},
-         typescript = {'eslint', 'autoimport'},
-         ruby = {'rubocop', 'debride', 'reek', 'rails_best_practices', 'ruby'},
-      }
       vim.cmd [[
-        let g:ale_linters_explicit = 1
         let g:ale_linters = {
         \   'javascript': ['eslint', 'autoimport'],
         \   'typescript': ['eslint', 'autoimport'],
-        \   'ruby': ['rubocop', 'debride', 'reek', 'rails_best_practices', 'ruby'],
+        \   'ruby': ['rubocop', 'debride', 'rails_best_practices', 'ruby'],
         \}
         let g:ale_fixers = {
         \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-        \   'javascript': ['eslint', 'autoimport'],
-        \   'typescript': ['eslint', 'autoimport'],
-        \   'ruby': ['rubocop'],
+        \   'javascript': ['eslint', 'autoimport','remove_trailing_lines', 'trim_whitespace'],
+        \   'typescript': ['eslint', 'autoimport','remove_trailing_lines', 'trim_whitespace'],
+        \   'ruby': ['rubocop','remove_trailing_lines', 'trim_whitespace'],
         \}
       ]]
     end,
