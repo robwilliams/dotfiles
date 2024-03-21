@@ -8,7 +8,6 @@ return {
         style = "deep",
       })
     end,
-    cond = true,
   },
 
   {
@@ -16,6 +15,5 @@ return {
     opts = {
       colorscheme = "onedark", -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
     },
-    cond = true,
   },
 }
