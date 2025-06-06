@@ -2,6 +2,8 @@
 .agignore
 .overcommit.yml
 .rtx.toml
+.mise.toml
+.mise.*.toml
 .solargraph.yml
 .swp
 .tool-versions
@@ -11,4 +13,4 @@ config/definitions.rb
 node_modules
 tags
 TAGS
-projections.json
+.projections.json

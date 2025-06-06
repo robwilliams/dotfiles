@@ -1,0 +1,4 @@
+# mise activation
+{{ if and (eq .chezmoi.os "darwin") (eq .chezmoi.hostname "robmac") }}
+eval "$(/Users/rob/.local/bin/mise activate zsh)"
+{{ end }}
