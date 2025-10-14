@@ -25,17 +25,8 @@ function worktree-add
         # Get the main worktree path
         set main_worktree (git worktree list | head -n 1 | awk '{print $1}')
 
-        # Files to symlink
-        set shared_files .mise.local.toml
-        # Add more files here as needed
-
-        # Create symlinks
-        for file in $shared_files
-            if test -f "$main_worktree/$file"
-                ln -sf "$main_worktree/$file" "$worktree_path/$file"
-                echo "Symlinked $file"
-            end
-        end
+        # Symlink all git-ignored files and directories
+        worktree-symlink-ignored $main_worktree $worktree_path
 
         # CD into the new worktree
         cd $worktree_path
