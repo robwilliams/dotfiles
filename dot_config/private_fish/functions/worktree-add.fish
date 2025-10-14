@@ -1,5 +1,15 @@
 function worktree-add
     # Usage: worktree-add <new-branch-name> [worktree-path]
+    if test (count $argv) -eq 0
+        echo "Usage: worktree-add <new-branch-name> [worktree-path]"
+        echo "  Creates a new git worktree with symlinked shared files"
+        echo ""
+        echo "Examples:"
+        echo "  wa feature-name          # creates worktree at ../feature-name"
+        echo "  wa feature-name /path    # creates worktree at custom path"
+        return 1
+    end
+
     set branch_name $argv[1]
     set worktree_path $argv[2]
 
