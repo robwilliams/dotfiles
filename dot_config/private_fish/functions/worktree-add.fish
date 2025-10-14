@@ -5,8 +5,8 @@ function worktree-add
         echo "  Creates a new git worktree with symlinked shared files"
         echo ""
         echo "Examples:"
-        echo "  wa feature-name          # creates worktree at ../feature-name"
-        echo "  wa feature-name /path    # creates worktree at custom path"
+        echo "  wta feature-name          # creates worktree at ../feature-name"
+        echo "  wta feature-name /path    # creates worktree at custom path"
         return 1
     end
 
