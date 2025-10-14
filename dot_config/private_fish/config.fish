@@ -7,3 +7,4 @@ end
 set -g fish_greeting
 
 fish_add_path $HOME/.local/bin
+fzf --fish | source
