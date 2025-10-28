@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# -------------------------------------------------------
+# ffmpeg_concat - join multiple MP4 files via Docker FFmpeg
+# Usage:
+#   ffmpeg_concat <input1.mp4> <input2.mp4> ... [-o output.mp4]
+#
+# Behaviour:
+#   - If no -o flag given → default output.mp4 (auto-increment if exists)
+#   - If -o is given → force overwrite of specified output
+#   - Must provide at least one input file
+# -------------------------------------------------------
+
+if [ "$#" -lt 1 ]; then
+  echo "Usage: ffmpeg_concat <input1.mp4> [input2.mp4 ...] [-o output.mp4]"
+  exit 1
+fi
+
+# Parse args
+inputs=()
+output=""
+force_overwrite=false
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -o)
+      if [ $# -lt 2 ]; then
+        echo "Error: -o requires a filename"
+        exit 1
+      fi
+      output="$2"
+      force_overwrite=true
+      shift 2
+      ;;
+    *)
+      inputs+=("$1")
+      shift
+      ;;
+  esac
+done
+
+# Validate inputs
+if [ "${#inputs[@]}" -eq 0 ]; then
+  echo "Error: no input files provided."
+  echo "Usage: ffmpeg_concat <input1.mp4> [input2.mp4 ...] [-o output.mp4]"
+  exit 1
+fi
+
+# Set default output if not provided
+if [ -z "$output" ]; then
+  output="output.mp4"
+fi
+
+# Auto-increment output if not forcing overwrite
+if [ "$force_overwrite" = false ] && [ -f "$output" ]; then
+  base="${output%.*}"
+  ext="${output##*.}"
+  i=2
+  while [ -f "${base}${i}.${ext}" ]; do
+    ((i++))
+  done
+  echo "⚠️  '$output' exists → using '${base}${i}.${ext}' instead"
+  output="${base}${i}.${ext}"
+fi
+
+# Create concat list file
+listfile="concat_list.txt"
+rm -f "$listfile"
+for f in "${inputs[@]}"; do
+  if [ ! -f "$f" ]; then
+    echo "Error: file '$f' not found."
+    rm -f "$listfile"
+    exit 1
+  fi
+  echo "file '$f'" >> "$listfile"
+done
+
+# Run ffmpeg via docker
+docker run --rm \
+  -v "$PWD":/workdir \
+  -w /workdir \
+  jrottenberg/ffmpeg:latest \
+  ffmpeg -f concat -safe 0 -i "$listfile" -c copy "$output"
+
+rm -f "$listfile"
+echo "✅ Done → $output"
