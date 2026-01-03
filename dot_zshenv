@@ -1,0 +1,2 @@
+# ~/.zshenv - sourced for ALL zsh invocations
+[ -f "$HOME/.profile" ] && . "$HOME/.profile"
