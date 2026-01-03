@@ -1,0 +1,18 @@
+# ~/.bashrc - interactive bash
+
+# Exit if not interactive
+[[ $- != *i* ]] && return
+
+# Aliases
+{{ range $name, $cmd := .aliases -}}
+alias {{ $name }}='{{ $cmd }}'
+{{ end }}
+
+# Functions
+wip() { git commit -m "WIP: $*"; }
+
+# Tool init (with guards)
+command -v starship >/dev/null && eval "$(starship init bash)"
+command -v mise >/dev/null && eval "$(mise activate bash)"
+command -v zoxide >/dev/null && eval "$(zoxide init bash)"
+command -v fzf >/dev/null && eval "$(fzf --bash)"
