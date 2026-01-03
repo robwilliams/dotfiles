@@ -1,0 +1,15 @@
+# Aliases (from chezmoi data)
+{{ range $name, $cmd := .aliases -}}
+alias {{ $name }} '{{ $cmd }}'
+{{ end }}
+
+# Fish-specific extras
+alias .. 'cd ..'
+alias ... 'cd ../..'
+alias .... 'cd ../../..'
+alias :q 'exit'
+alias dotfiles 'chezmoi edit'
+
+# Functions
+function wip; git commit -m "WIP: $argv"; end
+function wap; git add -p && git commit -m "WIP: $argv"; end
