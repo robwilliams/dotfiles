@@ -1,1 +1,1 @@
-starship init fish | source
+command -q starship && starship init fish | source
