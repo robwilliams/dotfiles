@@ -1,0 +1,23 @@
+# ~/.profile - shared environment for all POSIX shells
+
+# PATH (with deduplication)
+add_to_path() {
+  case ":$PATH:" in
+    *":$1:"*) ;;
+    *) export PATH="$1:$PATH" ;;
+  esac
+}
+
+add_to_path "$HOME/.local/bin"
+[ -d "/opt/homebrew/bin" ] && add_to_path "/opt/homebrew/bin"
+
+# Editor
+if [ "$TERM_PROGRAM" = "vscode" ]; then
+  export EDITOR="code --wait"
+else
+  export EDITOR="nvim"
+fi
+
+# Locale
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
