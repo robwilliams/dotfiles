@@ -1,11 +1,7 @@
-string match -q "$TERM_PROGRAM" "vscode"
-and . (code --locate-shell-integration-path fish)
-
-set -gx EDITOR code
-
-# Auto-attach to persistent tmux session in VSCode
-if string match -q "$TERM_PROGRAM" "vscode"
-    and not set -q TMUX
-    and status is-interactive
-    tmux-project-session
+if test "$TERM_PROGRAM" = "vscode"
+    and type -q code
+    . (code --locate-shell-integration-path fish)
+    set -gx EDITOR "code --wait"
+else
+    set -gx EDITOR nvim
 end
