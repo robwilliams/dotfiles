@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+mkdir -p ~/.local/bin
+mv nvim.appimage ~/.local/bin/nvim
+{{ else if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+brew install --HEAD neovim
+brew upgrade neovim --fetch-HEAD
+{{ end -}}
