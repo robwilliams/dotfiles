@@ -7,15 +7,14 @@
   branch = auto
 	ui = true
 [alias]
-  mergetool = "!nvim -c DiffviewOpen"
   fr = pull --rebase
   tree = log --graph --decorate --pretty=oneline --abbrev-commit
   searchadd = "!f() { git diff -U1 -S"$1" --pickaxe-regex | grepdiff "$1" | git apply --cached; }; f"
 [core]
   excludesfile = ~/.config/git/ignore
   autocrlf     = input
-	editor = nvim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = $EDITOR
+	pager = less -FRX
 [apply]
   whitespace = nowarn
 [format]
@@ -41,19 +40,7 @@
 	prune = true
 [pull]
 	rebase = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
 [init]
 	defaultBranch = main
 [commit]
-	template = /Users/rob/.config/git/template
+	template = {{ .chezmoi.homeDir }}/.config/git/template
