@@ -1,4 +1,6 @@
 .github/
+archive/
+docs/
 install.sh
 LICENSE
 LICENSE_CHEZMOI
